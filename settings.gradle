@@ -1,6 +1,6 @@
 rootProject.name = "framework-runtime"
 include "persistence:framework.data.jpa"
-findProject(":persistence:framework.data.jpa")?.name = "framework.data.jpa"
+// findProject(":persistence:framework.data.jpa")?.name = "framework.data.jpa"
 include "foundation:framework.common"
-findProject(":foundation:framework.common")?.name = "framework.common"
+// findProject(":foundation:framework.common")?.name = "framework.common"
 
