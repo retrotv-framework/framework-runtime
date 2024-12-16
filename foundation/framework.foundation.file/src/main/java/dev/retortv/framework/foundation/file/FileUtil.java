@@ -77,7 +77,7 @@ public class FileUtil {
     }
 
     /**
-     * 파일을 물리적으로 저장하고, 저장된 파일들의 정보를 List<FileInfoVO> 형식으로 반환.
+     * 파일을 물리적으로 저장하고, 저장된 파일들의 정보를 List<FileVO> 형식으로 반환.
      *
      * @param files HttpServletRequest에서 추출한 파일 목록
      * @param subDir 상세경로
