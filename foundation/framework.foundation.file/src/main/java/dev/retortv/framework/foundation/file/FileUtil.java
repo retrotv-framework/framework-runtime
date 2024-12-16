@@ -61,9 +61,7 @@ public class FileUtil {
      */
     public static String getSubDir(List<DiskFileItem> files) {
         String subDir = "";
-        Iterator<DiskFileItem> iter = files.iterator();
-        while (iter.hasNext()) {
-            FileItem<DiskFileItem> item = iter.next();
+        for (FileItem<DiskFileItem> item : files) {
             if (item.isFormField() && "subDir".equals(item.getFieldName())) {
                 try {
                     subDir = item.getString(StandardCharsets.UTF_8);
@@ -77,7 +75,7 @@ public class FileUtil {
     }
 
     /**
-     * 파일을 물리적으로 저장하고, 저장된 파일들의 정보를 List<FileVO> 형식으로 반환.
+     * 파일을 물리적으로 저장하고, 저장된 파일들의 정보를 {@code List<FileVO>} 형식으로 반환.
      *
      * @param files HttpServletRequest에서 추출한 파일 목록
      * @param subDir 상세경로
