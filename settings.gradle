@@ -1,8 +1,9 @@
 rootProject.name = "framework-runtime"
 
-// include "foundation:framework.common"
-// include "persistence:framework.data.jpa"
+include "foundation:framework.foundation.common"
+include 'foundation:framework.foundation.file'
+include "persistence:framework.persistence.jpa"
 
-findProject(":foundation:framework.common")?.name = "framework.common"
-findProject(":persistence:framework.data.jpa")?.name = "framework.data.jpa"
-
+findProject(":foundation:framework.foundation.common")?.name = "framework.foundation.common"
+findProject(':foundation:framework.foundation.file')?.name = 'framework.foundation.file'
+findProject(":persistence:framework.persistence.jpa")?.name = "framework.persistence.jpa"

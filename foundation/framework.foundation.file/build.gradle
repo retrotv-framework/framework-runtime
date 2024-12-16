@@ -1,0 +1,9 @@
+def springBootVersion = '3.4.0'
+def apacheCommonsFileUpload2 = '2.0.0-M2'
+
+dependencies {
+    implementation project(':foundation:framework.foundation.common')
+
+    implementation "org.springframework.boot:spring-boot-starter-web:${springBootVersion}"
+    implementation "org.apache.commons:commons-fileupload2-jakarta-servlet6:${apacheCommonsFileUpload2}"
+}
