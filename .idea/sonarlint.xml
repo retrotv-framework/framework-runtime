@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SonarLintProjectSettings">
+    <option name="moduleMapping">
+      <map>
+        <entry key="framework.common" value="framework.foundation.common" />
+        <entry key="framework.data.jpa" value="framework.persistence.framework.data.jpa" />
+      </map>
+    </option>
+  </component>
+</project>
