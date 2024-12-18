@@ -4,15 +4,12 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
-import dev.retrotv.framework.foundation.common.exception.InternalServerErrorException;
 import org.apache.commons.fileupload2.jakarta.servlet6.JakartaServletFileUpload;
 import org.apache.commons.fileupload2.core.DiskFileItem;
 import org.apache.commons.fileupload2.core.DiskFileItemFactory;
@@ -51,27 +48,6 @@ public class FileUtil {
         } catch (IOException ex) {
             throw new IOException("파일을 가져올 수 없습니다.", ex);
         }
-    }
-
-    /**
-     * HttpServletRequest에서 상세경로를 추출하여 반환.
-     *
-     * @param files HttpServletRequest에서 추출한 파일 목록
-     * @return 상세경로
-     */
-    public static String getSubDir(List<DiskFileItem> files) {
-        String subDir = "";
-        for (FileItem<DiskFileItem> item : files) {
-            if (item.isFormField() && "subDir".equals(item.getFieldName())) {
-                try {
-                    subDir = item.getString(StandardCharsets.UTF_8);
-                } catch (IOException ex) {
-                    throw new InternalServerErrorException("상세경로를 가져올 수 없습니다.", ex);
-                }
-            }
-        }
-
-        return subDir;
     }
 
     /**
