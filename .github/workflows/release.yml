@@ -11,7 +11,7 @@ jobs:
       - name: 버전 정보 추출
         run: |
           VERSION_INFORMATION=$( ${{github.workspace}}/mvnw help:evaluate -Dexpression=project.version -q -DforceStdout )
-          echo "::set-output name=version::$VERSION"
+          echo "::set-output name=version::$VERSION_INFORMATION"
         id: extract_version_name
       - name: Release 생성
         uses: actions/create-release@v1
