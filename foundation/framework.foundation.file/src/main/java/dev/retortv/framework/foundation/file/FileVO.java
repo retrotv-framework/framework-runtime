@@ -7,6 +7,12 @@ import org.apache.commons.io.FilenameUtils;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
+/**
+ * 파일 정보를 담는 VO 클래스
+ *
+ * @since 1.0.0
+ * @version 1.0.0
+ */
 @Getter
 @AllArgsConstructor
 public class FileVO {

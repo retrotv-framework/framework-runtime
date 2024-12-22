@@ -8,6 +8,9 @@ import jakarta.persistence.AttributeConverter;
 
 /**
  * 데이터베이스에 저장되는 Date 값을 'yyyy-MM-dd HH:mm:ss' 포맷으로 저장하고 읽어오는 컨버터
+ *
+ * @since 1.0.0
+ * @version 1.0.0
  */
 public class DateStringConverter implements AttributeConverter<Date, String> {
     private final SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");

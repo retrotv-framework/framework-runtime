@@ -4,6 +4,9 @@ import jakarta.persistence.AttributeConverter;
 
 /**
  * 데이터베이스에 저장되는 Boolean 값을 'Y'/'N'로 저장하고 읽어오는 컨버터
+ *
+ * @since 1.0.0
+ * @version 1.0.0
  */
 public class BooleanYNConverter implements AttributeConverter<Boolean, String> {
 

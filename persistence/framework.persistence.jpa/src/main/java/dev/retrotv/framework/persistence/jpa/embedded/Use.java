@@ -13,6 +13,12 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+/**
+ * 데이터 사용여부 및 사용가능 기간을 지정하기 위한 임베디드 필드
+ *
+ * @since 1.0.0
+ * @version 1.0.0
+ */
 @Getter
 @Builder
 @Embeddable

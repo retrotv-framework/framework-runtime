@@ -18,6 +18,12 @@ import org.apache.commons.io.IOUtils;
 
 import jakarta.servlet.http.HttpServletRequest;
 
+/**
+ * 파일 관련 유틸리티 클래스
+ *
+ * @since 1.0.0
+ * @version 1.0.0
+ */
 public class FileUtil {
     FileUtil() {
         throw new IllegalStateException("유틸리티성 클래스 입니다.");

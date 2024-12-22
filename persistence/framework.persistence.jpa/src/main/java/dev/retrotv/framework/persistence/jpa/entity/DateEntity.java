@@ -17,6 +17,12 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
+/**
+ * 생성/수정일자 및 사용자 데이터를 가지는 엔티티
+ *
+ * @since 1.0.0
+ * @version 1.0.0
+ */
 @Getter
 @SuperBuilder
 @MappedSuperclass
