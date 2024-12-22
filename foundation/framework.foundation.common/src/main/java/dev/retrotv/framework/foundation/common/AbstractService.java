@@ -10,7 +10,12 @@ import org.slf4j.LoggerFactory;
  *
  * @since 1.0.0
  * @version 1.0.0
+ * @see org.slf4j.Logger
  */
 public abstract class AbstractService {
+
+    /**
+     * 로깅을 위한 Logger 객체
+     */
     protected Logger log = LoggerFactory.getLogger(this.getClass());
 }

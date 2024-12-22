@@ -44,8 +44,9 @@ public class FileUtil {
      *
      * @param request HttpServletRequest 객체
      * @return 파일 리스트
+     * @throws IOException 파일을 가져오는 도중 오류가 발생하면 던져짐
      */
-    public static List<DiskFileItem> getFiles(HttpServletRequest request) throws IOException{
+    public static List<DiskFileItem> getFiles(HttpServletRequest request) throws IOException {
         var factory = DiskFileItemFactory.builder().get();
         var upload = new JakartaServletFileUpload<>(factory);
 

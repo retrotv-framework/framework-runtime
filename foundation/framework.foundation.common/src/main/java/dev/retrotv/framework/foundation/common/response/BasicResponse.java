@@ -18,24 +18,50 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class BasicResponse {
+
+    /**
+     * 응답 성공 여부
+     */
     protected boolean success = true;
     String message = "정상적으로 처리되었습니다.";
     HttpStatus httpStatus = HttpStatus.OK;
 
+    /**
+     * 응답 메시지를 받아 응답 객체를 생성합니다.
+     *
+     * @param message 응답 메시지
+     */
     public BasicResponse(String message) {
         this.message = message;
     }
 
+    /**
+     * 응답 메시지와 HTTP 상태 코드를 받아 응답 객체를 생성합니다.
+     *
+     * @param message 응답 메시지
+     * @param httpStatusCode HTTP 상태 코드 (int)
+     */
     public BasicResponse(String message, int httpStatusCode) {
         this.message = message;
         this.httpStatus = HttpStatus.valueOf(httpStatusCode);
     }
 
+    /**
+     * 응답 메시지와 HTTP 상태 코드를 받아 응답 객체를 생성합니다.
+     *
+     * @param message 응답 메시지
+     * @param httpStatus HTTP 상태 코드 (HttpStatus enum)
+     */
     public BasicResponse(String message, HttpStatus httpStatus) {
         this.message = message;
         this.httpStatus = httpStatus;
     }
 
+    /**
+     * HTTP 상태 코드를 반환합니다.
+     *
+     * @return HTTP 상태 코드
+     */
     public int getHttpStatusCode() {
         return httpStatus.value();
     }
