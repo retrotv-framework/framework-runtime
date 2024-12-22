@@ -20,11 +20,19 @@ import lombok.NoArgsConstructor;
 public class BasicResponse {
 
     /**
-     * 응답 성공 여부
+     * 응답 성공 여부 (기본값: true)
      */
     protected boolean success = true;
-    String message = "정상적으로 처리되었습니다.";
-    HttpStatus httpStatus = HttpStatus.OK;
+
+    /**
+     * 응답 메시지 (기본값: "정상적으로 처리되었습니다.")
+     */
+    protected String message = "정상적으로 처리되었습니다.";
+
+    /**
+     * HTTP 상태 코드 (기본값: HttpStatus.OK)
+     */
+    protected HttpStatus httpStatus = HttpStatus.OK;
 
     /**
      * 응답 메시지를 받아 응답 객체를 생성합니다.
