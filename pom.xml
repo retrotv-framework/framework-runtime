@@ -139,6 +139,7 @@
         <module>persistence/framework.persistence.jpa</module>
         <module>foundation/framework.foundation.common</module>
         <module>foundation/framework.foundation.file</module>
+        <module>foundation/framework.foundation.cryptography</module>
     </modules>
 
     <dependencies>
