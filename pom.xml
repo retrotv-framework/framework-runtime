@@ -28,7 +28,12 @@
         <sonar.projectKey>retrotv-framework_framework-runtime</sonar.projectKey>
         <sonar.organization>retrotv-framework</sonar.organization>
         <sonar.host.url>https://sonarcloud.io</sonar.host.url>
-        <sonar.coverage.exclusions>**/exception/*,**/response/*,**/jpa/*,**/Abstract*.java,FileUtil.java,FileVO.java</sonar.coverage.exclusions>
+        <sonar.coverage.exclusions>
+            **/exception/*,**/response/*,**/jpa/*,**/Abstract*.java,FileUtil.java,FileVO.java
+        </sonar.coverage.exclusions>
+        <sonar.coverage.jacoco.xmlReportPaths>
+            ../app-it/target/site/jacoco-aggregate/jacoco.xml
+        </sonar.coverage.jacoco.xmlReportPaths>
     </properties>
 
     <repositories>
@@ -99,6 +104,32 @@
                 <groupId>org.sonarsource.scanner.maven</groupId>
                 <artifactId>sonar-maven-plugin</artifactId>
                 <version>${sonarqube.version}</version>
+            </plugin>
+
+            <!-- JaCoCo 플러그인 -->
+            <plugin>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+                <version>0.8.12</version>
+                <executions>
+                    <execution>
+                        <id>prepare-agent</id>
+                        <goals>
+                            <goal>prepare-agent</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>report</id>
+                        <goals>
+                            <goal>report</goal>
+                        </goals>
+                        <configuration>
+                            <formats>
+                                <format>XML</format>
+                            </formats>
+                        </configuration>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
