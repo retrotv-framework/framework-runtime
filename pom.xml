@@ -9,7 +9,31 @@
     <version>0.0.10-alpha</version>
     <packaging>pom</packaging>
 
+    <!-- 프로퍼티 -->
+    <properties>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+        <!-- 플러그인 -->
+        <sonarqube.version>5.0.0.4389</sonarqube.version>
+
+        <!-- 라이브러리 -->
+        <lombok.version>1.18.36</lombok.version>
+        <spring-boot.version>3.4.1</spring-boot.version>
+        <junit.version>5.11.4</junit.version>
+        <assertj.version>3.27.0</assertj.version>
+
+        <!-- SonarQube -->
+        <sonar.projectKey>retrotv-framework_framework-runtime</sonar.projectKey>
+        <sonar.organization>retrotv-framework</sonar.organization>
+        <sonar.host.url>https://sonarcloud.io</sonar.host.url>
+        <sonar.coverage.exclusions>**/exception/*,**/response/*,**/jpa/*,**/Abstract*.java,FileUtil.java,FileVO.java</sonar.coverage.exclusions>
+    </properties>
+
     <repositories>
+
+        <!-- Maven 중앙 저장소 -->
         <repository>
             <snapshots>
                 <enabled>false</enabled>
@@ -18,6 +42,8 @@
             <name>Central Repository</name>
             <url>https://repo.maven.apache.org/maven2</url>
         </repository>
+
+        <!-- JitPack 저장소 -->
         <repository>
             <id>jitpack.io</id>
             <url>https://jitpack.io</url>
@@ -25,6 +51,8 @@
     </repositories>
 
     <build>
+
+        <!-- 플러그인 -->
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -65,19 +93,17 @@
                 <artifactId>maven-help-plugin</artifactId>
                 <version>3.5.1</version>
             </plugin>
+
+            <!-- SonarQube 플러그인 -->
+            <plugin>
+                <groupId>org.sonarsource.scanner.maven</groupId>
+                <artifactId>sonar-maven-plugin</artifactId>
+                <version>${sonarqube.version}</version>
+            </plugin>
         </plugins>
     </build>
 
-    <properties>
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <lombok.version>1.18.36</lombok.version>
-        <spring-boot.version>3.4.1</spring-boot.version>
-        <junit.version>5.11.4</junit.version>
-        <assertj.version>3.27.0</assertj.version>
-    </properties>
-
+    <!-- 하위 모듈 -->
     <modules>
         <module>persistence/framework.persistence.jpa</module>
         <module>foundation/framework.foundation.common</module>
@@ -85,6 +111,8 @@
     </modules>
 
     <dependencies>
+
+        <!-- Spring Boot 라이브러리 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
@@ -92,40 +120,38 @@
             <scope>provided</scope>
         </dependency>
 
+        <!-- Lombok 라이브러리 -->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <version>${lombok.version}</version>
         </dependency>
 
+        <!-- 테스트용 라이브러리 -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-api</artifactId>
             <version>${junit.version}</version>
             <scope>test</scope>
         </dependency>
-
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-engine</artifactId>
             <version>${junit.version}</version>
             <scope>test</scope>
         </dependency>
-
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter</artifactId>
             <version>${junit.version}</version>
             <scope>test</scope>
         </dependency>
-
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-params</artifactId>
             <version>${junit.version}</version>
             <scope>test</scope>
         </dependency>
-
         <dependency>
             <groupId>org.assertj</groupId>
             <artifactId>assertj-core</artifactId>
