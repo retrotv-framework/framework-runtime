@@ -32,7 +32,7 @@
             **/exception/*,**/response/*,**/jpa/*,**/Abstract*.java,FileUtil.java,FileVO.java
         </sonar.coverage.exclusions>
         <sonar.coverage.jacoco.xmlReportPaths>
-            ../app-it/target/site/jacoco-aggregate/jacoco.xml
+            ${project.basedir}/target/site/jacoco/jacoco.xml
         </sonar.coverage.jacoco.xmlReportPaths>
     </properties>
 
