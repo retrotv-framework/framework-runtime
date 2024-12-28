@@ -1,4 +1,4 @@
-package hash;
+package dev.retrotv.framework.foundation.cryptography.hash;
 
 import dev.retrotv.crypto.enums.EHash;
 import dev.retrotv.framework.foundation.cryptography.hash.Hash;
