@@ -161,6 +161,26 @@
     </build>
 
     <dependencies>
+        <dependency>
+            <groupId>dev.retrotv</groupId>
+            <artifactId>framework.foundation.common</artifactId>
+            <version>0.0.10-alpha</version>
+        </dependency>
+        <dependency>
+            <groupId>dev.retrotv</groupId>
+            <artifactId>framework.foundation.file</artifactId>
+            <version>0.0.10-alpha</version>
+        </dependency>
+        <dependency>
+            <groupId>dev.retrotv</groupId>
+            <artifactId>framework.foundation.cryptography</artifactId>
+            <version>0.0.10-alpha</version>
+        </dependency>
+        <dependency>
+            <groupId>dev.retrotv</groupId>
+            <artifactId>framework.persistence.jpa</artifactId>
+            <version>0.0.10-alpha</version>
+        </dependency>
 
         <!-- Spring Boot 라이브러리 -->
         <dependency>
