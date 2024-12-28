@@ -39,6 +39,9 @@
         <sonar.coverage.exclusions>
             **/exception/*,**/response/*,**/jpa/*,**/Abstract*.java,FileUtil.java,FileVO.java
         </sonar.coverage.exclusions>
+        <sonar.coverage.jacoco.xmlReportPaths>
+            ${project.basedir}/target/site/jacoco-aggregate/jacoco.xml
+        </sonar.coverage.jacoco.xmlReportPaths>
     </properties>
 
     <repositories>
