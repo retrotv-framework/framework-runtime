@@ -9,6 +9,14 @@
     <version>0.0.10-alpha</version>
     <packaging>pom</packaging>
 
+    <!-- 하위 모듈 -->
+    <modules>
+        <module>persistence/framework.persistence.jpa</module>
+        <module>foundation/framework.foundation.common</module>
+        <module>foundation/framework.foundation.file</module>
+        <module>foundation/framework.foundation.cryptography</module>
+    </modules>
+
     <!-- 프로퍼티 -->
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
@@ -32,7 +40,7 @@
             **/exception/*,**/response/*,**/jpa/*,**/Abstract*.java,FileUtil.java,FileVO.java
         </sonar.coverage.exclusions>
         <sonar.coverage.jacoco.xmlReportPaths>
-            ${project.basedir}/target/site/jacoco/jacoco.xml
+            ${project.basedir}/persistence/framework.persistence.jpa/target/site/jacoco/jacoco.xml
         </sonar.coverage.jacoco.xmlReportPaths>
     </properties>
 
@@ -57,7 +65,7 @@
 
     <build>
 
-        <!-- 플러그인 -->
+        <!-- Maven 플러그인 -->
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -93,6 +101,28 @@
                 </executions>
             </plugin>
 
+            <!--
+                maven-failsafe-plugin: Test가 하나라도 실패할 경우 즉시 빌드를 중단
+            -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-failsafe-plugin</artifactId>
+                <version>3.5.2</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>integration-test</goal>
+                            <goal>verify</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <includes>
+                        <include>**/*Test.java</include>
+                    </includes>
+                </configuration>
+            </plugin>
+
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-help-plugin</artifactId>
@@ -110,7 +140,6 @@
             <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
-                <version>0.8.12</version>
                 <executions>
                     <execution>
                         <id>prepare-agent</id>
@@ -118,29 +147,20 @@
                             <goal>prepare-agent</goal>
                         </goals>
                     </execution>
-                    <execution>
-                        <id>report</id>
-                        <goals>
-                            <goal>report</goal>
-                        </goals>
-                        <configuration>
-                            <formats>
-                                <format>XML</format>
-                            </formats>
-                        </configuration>
-                    </execution>
                 </executions>
             </plugin>
         </plugins>
-    </build>
 
-    <!-- 하위 모듈 -->
-    <modules>
-        <module>persistence/framework.persistence.jpa</module>
-        <module>foundation/framework.foundation.common</module>
-        <module>foundation/framework.foundation.file</module>
-        <module>foundation/framework.foundation.cryptography</module>
-    </modules>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.jacoco</groupId>
+                    <artifactId>jacoco-maven-plugin</artifactId>
+                    <version>0.8.12</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
 
     <dependencies>
 
