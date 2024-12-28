@@ -40,7 +40,10 @@
             **/exception/*,**/response/*,**/jpa/*,**/Abstract*.java,FileUtil.java,FileVO.java
         </sonar.coverage.exclusions>
         <sonar.coverage.jacoco.xmlReportPaths>
-            ${project.basedir}/target/site/jacoco-aggregate/jacoco.xml
+            ${project.basedir}/persistence/framework.persistence.jpa/target/site/jacoco-aggregate/jacoco.xml,
+            ${project.basedir}/foundation/framework.foundation.common/target/site/jacoco-aggregate/jacoco.xml,
+            ${project.basedir}/foundation/framework.foundation.file/target/site/jacoco-aggregate/jacoco.xml,
+            ${project.basedir}/foundation/framework.foundation.cryptography/target/site/jacoco-aggregate/jacoco.xml
         </sonar.coverage.jacoco.xmlReportPaths>
     </properties>
 
@@ -140,6 +143,7 @@
             <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
+                <version>0.8.12</version>
                 <executions>
                     <execution>
                         <id>report-aggregate</id>
@@ -147,20 +151,16 @@
                         <goals>
                             <goal>report-aggregate</goal>
                         </goals>
+                        <configuration>
+                            <formats>
+                                <format>HTML</format>
+                                <format>XML</format>
+                            </formats>
+                        </configuration>
                     </execution>
                 </executions>
             </plugin>
         </plugins>
-
-        <pluginManagement>
-            <plugins>
-                <plugin>
-                    <groupId>org.jacoco</groupId>
-                    <artifactId>jacoco-maven-plugin</artifactId>
-                    <version>0.8.12</version>
-                </plugin>
-            </plugins>
-        </pluginManagement>
     </build>
 
     <dependencies>
