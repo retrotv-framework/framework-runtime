@@ -16,10 +16,16 @@
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <cryptography.version>0.44.0-alpha</cryptography.version>
+        <data-utils.version>0.21.6-alpha</data-utils.version>
+        <cryptography.version>0.47.2-alpha</cryptography.version>
     </properties>
 
     <dependencies>
+        <dependency>
+            <groupId>com.github.retrotv-maven-repo</groupId>
+            <artifactId>data-utils</artifactId>
+            <version>${data-utils.version}</version>
+        </dependency>
         <dependency>
             <groupId>com.github.retrotv-maven-repo.cryptography</groupId>
             <artifactId>cryptography-core</artifactId>
@@ -33,6 +39,11 @@
         <dependency>
             <groupId>com.github.retrotv-maven-repo.cryptography</groupId>
             <artifactId>cryptography-cipher</artifactId>
+            <version>${cryptography.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.github.retrotv-maven-repo.cryptography</groupId>
+            <artifactId>cryptography-password</artifactId>
             <version>${cryptography.version}</version>
         </dependency>
     </dependencies>

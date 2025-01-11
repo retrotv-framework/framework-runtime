@@ -18,7 +18,7 @@
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <fileupload.version>2.0.0-M2</fileupload.version>
-        <cryptography.version>0.43.1-alpha</cryptography.version>
+        <cryptography.version>0.47.2-alpha</cryptography.version>
     </properties>
 
     <dependencies>
