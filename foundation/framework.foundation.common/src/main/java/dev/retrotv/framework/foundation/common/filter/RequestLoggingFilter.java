@@ -1,5 +1,6 @@
 package dev.retrotv.framework.foundation.common.filter;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ReadListener;
 import jakarta.servlet.ServletException;
@@ -21,6 +22,7 @@ import java.util.List;
 
 public class RequestLoggingFilter extends OncePerRequestFilter {
     private static final Logger log = LoggerFactory.getLogger(RequestLoggingFilter.class);
+    private static final ObjectMapper objectMapper = new ObjectMapper();
 
     @Override
     protected void doFilterInternal(
@@ -50,33 +52,70 @@ public class RequestLoggingFilter extends OncePerRequestFilter {
     }
 
     private static void logRequest(RequestWrapper request) throws IOException {
+        String method = request.getMethod();
         String queryString = request.getQueryString();
+               queryString = queryString == null ? request.getRequestURI() : request.getRequestURI() + queryString;
+        String contentType = request.getContentType() == null ? "" : request.getContentType();
 
         log.debug(
-            "Request : {} uri=[{}] content-type[{}]", request.getMethod(),
-            queryString == null ? request.getRequestURI() : request.getRequestURI() + queryString,
-            request.getContentType()
+              """
+              ========================================================================================================
+              | Request Type        : {}
+              | Request URI         : {}
+              | Request Content-Type: {}
+              ========================================================================================================
+              """
+            , method
+            , queryString
+            , contentType
         );
 
-        logPayload("Request", request.getContentType(), request.getInputStream());
+        logPayload("Request", contentType, request.getInputStream());
     }
 
     private static void logResponse(ContentCachingResponseWrapper response) throws IOException {
-        logPayload("Response", response.getContentType(), response.getContentInputStream());
+        String contentType = response.getContentType() == null ? "" : response.getContentType();
+        logPayload("Response", contentType, response.getContentInputStream());
     }
 
     private static void logPayload(String prefix, String contentType, InputStream inputStream) throws IOException {
-        boolean visible = isVisible(MediaType.valueOf(contentType == null ? "application/json" : contentType));
+        boolean visible = isVisible(
+            MediaType.valueOf(
+                contentType == null || contentType.isEmpty() ? "application/json" : contentType
+            )
+        );
 
         if (visible) {
             byte[] content = StreamUtils.copyToByteArray(inputStream);
 
             if (content.length > 0) {
                 String contentString = new String(content);
-                log.debug("{} Payload: {}", prefix, contentString);
+                Object jsonObject = objectMapper.readValue(contentString, Object.class);
+                String jsonContentString = objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(jsonObject);
+
+                log.debug(
+                     """
+                     ========================================================================================================
+                     {}
+                     
+                     Payload:
+                     {}
+                     ========================================================================================================
+                     """
+                   , prefix
+                   , jsonContentString
+                );
             }
         } else {
-            log.debug("{} Payload: Binary Content", prefix);
+            log.debug(
+                  """
+                  {}
+                  
+                  Payload:
+                  Binary Content
+                  """
+                , prefix
+            );
         }
     }
 
@@ -92,7 +131,7 @@ public class RequestLoggingFilter extends OncePerRequestFilter {
         );
 
         return visibleTypes.stream()
-                .anyMatch(visibleType -> visibleType.includes(mediaType));
+                           .anyMatch(visibleType -> visibleType.includes(mediaType));
     }
 
     static class RequestWrapper extends HttpServletRequestWrapper {
