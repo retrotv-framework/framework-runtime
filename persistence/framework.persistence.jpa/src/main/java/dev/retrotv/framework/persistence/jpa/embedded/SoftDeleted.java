@@ -11,6 +11,12 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Convert;
 import jakarta.persistence.Embeddable;
 
+/**
+ * 데이터를 소프트하게 삭제하기 위한 임베디드 필드
+ *
+ * @since 1.0.0
+ * @version 1.0.0
+ */
 @Getter
 @Builder
 @Embeddable

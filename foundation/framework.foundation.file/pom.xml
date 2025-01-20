@@ -9,7 +9,7 @@
     <parent>
         <groupId>dev.retrotv</groupId>
         <artifactId>framework-runtime</artifactId>
-        <version>0.0.10-alpha</version>
+        <version>0.0.11-alpha</version>
         <relativePath>../../pom.xml</relativePath>
     </parent>
 
@@ -17,14 +17,21 @@
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <fileupload.version>2.0.0-M2</fileupload.version>
+        <cryptography.version>0.47.2-alpha</cryptography.version>
     </properties>
 
     <dependencies>
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-fileupload2-jakarta-servlet6</artifactId>
-            <version>2.0.0-M2</version>
+            <version>${fileupload.version}</version>
             <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.github.retrotv-maven-repo.cryptography</groupId>
+            <artifactId>cryptography-hash</artifactId>
+            <version>${cryptography.version}</version>
         </dependency>
     </dependencies>
 </project>

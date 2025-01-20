@@ -18,6 +18,12 @@ import org.apache.commons.io.IOUtils;
 
 import jakarta.servlet.http.HttpServletRequest;
 
+/**
+ * 파일 관련 유틸리티 클래스
+ *
+ * @since 1.0.0
+ * @version 1.0.0
+ */
 public class FileUtil {
     FileUtil() {
         throw new IllegalStateException("유틸리티성 클래스 입니다.");
@@ -38,8 +44,9 @@ public class FileUtil {
      *
      * @param request HttpServletRequest 객체
      * @return 파일 리스트
+     * @throws IOException 파일을 가져오는 도중 오류가 발생하면 던져짐
      */
-    public static List<DiskFileItem> getFiles(HttpServletRequest request) throws IOException{
+    public static List<DiskFileItem> getFiles(HttpServletRequest request) throws IOException {
         var factory = DiskFileItemFactory.builder().get();
         var upload = new JakartaServletFileUpload<>(factory);
 

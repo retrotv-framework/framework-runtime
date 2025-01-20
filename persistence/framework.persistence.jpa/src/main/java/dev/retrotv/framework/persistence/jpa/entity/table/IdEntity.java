@@ -10,6 +10,12 @@ import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 import org.hibernate.annotations.Comment;
 
+/**
+ * 식별자를 가지는 엔티티
+ *
+ * @since 1.0.0
+ * @version 1.0.0
+ */
 @Getter
 @SuperBuilder
 @MappedSuperclass

@@ -9,7 +9,7 @@
     <parent>
         <groupId>dev.retrotv</groupId>
         <artifactId>framework-runtime</artifactId>
-        <version>0.0.10-alpha</version>
+        <version>0.0.11-alpha</version>
         <relativePath>../../pom.xml</relativePath>
     </parent>
 
@@ -17,7 +17,7 @@
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <spring-boot.version>3.4.0</spring-boot.version>
+        <spring-boot.version>3.4.1</spring-boot.version>
     </properties>
 
     <dependencies>
