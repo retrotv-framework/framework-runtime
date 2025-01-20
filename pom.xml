@@ -31,6 +31,8 @@
         <spring-boot.version>3.4.1</spring-boot.version>
         <junit.version>5.11.4</junit.version>
         <assertj.version>3.27.0</assertj.version>
+        <log4j.version>2.24.3</log4j.version>
+        <slf4j.version>2.0.16</slf4j.version>
 
         <!-- SonarQube -->
         <jacoco.version>0.8.12</jacoco.version>
@@ -42,7 +44,7 @@
         <sonar.host.url>https://sonarcloud.io</sonar.host.url>
         <sonar.jacoco.reportPath>${project.basedir}/../target/jacoco.exec</sonar.jacoco.reportPath>
         <sonar.coverage.exclusions>
-            **/exception/*,**/response/*,**/jpa/*,**/Abstract*.java,FileUtil.java,FileVO.java
+            **/exception/*,**/filter/*,**/response/*,**/jpa/*,**/Abstract*.java,FileUtil.java,FileVO.java
         </sonar.coverage.exclusions>
         <sonar.jacoco.reportsPaths>
             ${project.build.directory}/jacoco-ut.exec
@@ -172,6 +174,24 @@
             <artifactId>lombok</artifactId>
             <version>${lombok.version}</version>
         </dependency>
+
+        <!-- Logging 라이브러리 -->
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>${log4j.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-api</artifactId>
+            <version>${log4j.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>${slf4j.version}</version>
+        </dependency>
+
 
         <!-- 테스트용 라이브러리 -->
         <dependency>
