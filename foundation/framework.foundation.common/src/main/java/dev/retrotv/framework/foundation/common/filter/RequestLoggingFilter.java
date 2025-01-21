@@ -58,6 +58,7 @@ public class RequestLoggingFilter extends OncePerRequestFilter {
         String queryString = request.getQueryString();
                queryString = queryString == null ? request.getRequestURI() : request.getRequestURI() + queryString;
         String contentType = request.getContentType() == null ? "" : request.getContentType();
+        String ipAddr = IPUtils.getIPAddr(request);
 
         log.debug(
               """
@@ -71,7 +72,7 @@ public class RequestLoggingFilter extends OncePerRequestFilter {
             , method
             , queryString
             , contentType
-            , IPUtils.getIPAddr(request)
+            , ipAddr
         );
 
         logPayload("Request", contentType, request.getInputStream());
