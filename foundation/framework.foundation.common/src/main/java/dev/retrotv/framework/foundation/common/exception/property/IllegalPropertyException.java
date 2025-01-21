@@ -1,4 +1,4 @@
-package dev.retrotv.framework.foundation.common.exception;
+package dev.retrotv.framework.foundation.common.exception.property;
 
 /**
  * application.yml 및 application.properties에 잘못된 프로퍼티 값이 있을 때 발생하는 예외

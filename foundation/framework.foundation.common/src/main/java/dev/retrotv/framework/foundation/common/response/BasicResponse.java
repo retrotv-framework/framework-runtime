@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 
 /**
  * 기본적인 응답을 위한 클래스
- * !중요: 모든 응답을 위한 클래스는 이 클래스를 상속받아 구현해야 합니다
+ * !중요: 모든 응답을 위한 클래스는 이 클래스를 상속받아 구현해야 함
  * EX) class SampleResponse extends BasicResponse { ... }
  *
  * @since 1.0.0
