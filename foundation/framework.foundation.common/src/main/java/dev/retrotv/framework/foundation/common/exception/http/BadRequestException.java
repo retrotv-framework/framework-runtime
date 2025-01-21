@@ -1,18 +1,19 @@
-package dev.retrotv.framework.foundation.common.exception;
+package dev.retrotv.framework.foundation.common.exception.http;
 
 /**
+ * 400 Bad Request
  * 잘못된 요청이 있을 때 발생하는 예외
  *
  * @since 1.0.0
  * @version 1.0.0
  */
-public class BadRequestException extends RuntimeException {
+public class BadRequestException extends ResponseErrorException {
 
     /**
      * 기본 생성자
      */
     public BadRequestException() {
-        super();
+        super("잘못된 요청입니다.");
     }
 
     /**

@@ -19,7 +19,7 @@
 
     <!-- 프로퍼티 -->
     <properties>
-        <revision>0.0.12-alpha</revision>
+        <revision>0.0.13-alpha</revision>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -45,7 +45,7 @@
         <sonar.host.url>https://sonarcloud.io</sonar.host.url>
         <sonar.jacoco.reportPath>${project.basedir}/../target/jacoco.exec</sonar.jacoco.reportPath>
         <sonar.coverage.exclusions>
-            **/exception/*,**/filter/*,**/response/*,**/jpa/*,**/Abstract*.java,FileUtil.java,FileVO.java
+            **/exception/*,**/filter/*,**/response/*,**/wrapper/*,**/jpa/*,**/Abstract*.java,FileUtil.java,FileVO.java
         </sonar.coverage.exclusions>
         <sonar.jacoco.reportsPaths>
             ${project.build.directory}/jacoco-ut.exec

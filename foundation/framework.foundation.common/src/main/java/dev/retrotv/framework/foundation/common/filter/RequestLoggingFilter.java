@@ -1,6 +1,7 @@
 package dev.retrotv.framework.foundation.common.filter;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import dev.retrotv.framework.foundation.common.wrapper.RequestWrapper;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ReadListener;
 import jakarta.servlet.ServletException;
@@ -20,6 +21,9 @@ import java.io.*;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * HttpServletRequest/HttpServletResponse의 요청/응답을 로깅하는 필터
+ */
 public class RequestLoggingFilter extends OncePerRequestFilter {
     private static final Logger log = LoggerFactory.getLogger(RequestLoggingFilter.class);
     private static final ObjectMapper objectMapper = new ObjectMapper();
@@ -60,9 +64,9 @@ public class RequestLoggingFilter extends OncePerRequestFilter {
         log.debug(
               """
               ========================================================================================================
-              | Request Type        : {}
-              | Request URI         : {}
-              | Request Content-Type: {}
+              | Method Type : {}
+              | URI         : {}
+              | Content-Type: {}
               ========================================================================================================
               """
             , method
@@ -132,47 +136,5 @@ public class RequestLoggingFilter extends OncePerRequestFilter {
 
         return visibleTypes.stream()
                            .anyMatch(visibleType -> visibleType.includes(mediaType));
-    }
-
-    static class RequestWrapper extends HttpServletRequestWrapper {
-        private final byte[] cachedBody;
-
-        public RequestWrapper(HttpServletRequest request) throws IOException {
-            super(request);
-            this.cachedBody = StreamUtils.copyToByteArray(request.getInputStream());
-        }
-
-        @Override
-        public BufferedReader getReader() {
-            return new BufferedReader(new InputStreamReader(new ByteArrayInputStream(this.cachedBody)));
-        }
-
-        @Override
-        public ServletInputStream getInputStream() {
-            final ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(cachedBody);
-
-            return new ServletInputStream() {
-
-                @Override
-                public boolean isFinished() {
-                    return byteArrayInputStream.available() == 0;
-                }
-
-                @Override
-                public boolean isReady() {
-                    return true;
-                }
-
-                @Override
-                public void setReadListener(ReadListener readListener) {
-                    throw new UnsupportedOperationException();
-                }
-
-                @Override
-                public int read() {
-                    return byteArrayInputStream.read();
-                }
-            };
-        }
     }
 }
