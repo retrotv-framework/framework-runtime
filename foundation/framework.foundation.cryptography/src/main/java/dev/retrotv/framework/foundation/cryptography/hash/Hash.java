@@ -6,7 +6,7 @@ import java.nio.charset.StandardCharsets;
 public class Hash {
     private static Hash instance = null;
     private static EHash hashAlgorithm = null;
-    private static dev.retrotv.crypto.hash.Hash hash = null;
+    private static dev.retrotv.crypto.hash.Hash h = null;
 
     private Hash() {}
 
@@ -19,7 +19,7 @@ public class Hash {
             synchronized (Hash.class) {
                 instance = new Hash();
                 Hash.hashAlgorithm = hashAlgorithm;
-                Hash.hash = dev.retrotv.crypto.hash.Hash.getInstance(selectHashAlgorithm(hashAlgorithm));
+                Hash.h = dev.retrotv.crypto.hash.Hash.getInstance(selectHashAlgorithm(hashAlgorithm));
             }
         }
 
@@ -50,9 +50,9 @@ public class Hash {
 
     public String digest(String data, EFormat format, Charset charset) {
         if (EFormat.BASE64.equals(format)) {
-            return toBase64(hash.hashing(data.getBytes(charset)));
+            return toBase64(h.hashing(data.getBytes(charset)));
         } else if (EFormat.HEX.equals(format)) {
-            return toHex(hash.hashing(data.getBytes(charset)));
+            return toHex(h.hashing(data.getBytes(charset)));
         } else {
             throw new IllegalArgumentException("Invalid format");
         }

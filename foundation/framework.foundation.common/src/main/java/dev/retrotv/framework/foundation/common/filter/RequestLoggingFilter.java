@@ -4,11 +4,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import dev.retrotv.framework.foundation.common.util.IPUtils;
 import dev.retrotv.framework.foundation.common.wrapper.RequestWrapper;
 import jakarta.servlet.FilterChain;
-import jakarta.servlet.ReadListener;
 import jakarta.servlet.ServletException;
-import jakarta.servlet.ServletInputStream;
 import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletRequestWrapper;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.NonNull;
 import org.slf4j.Logger;
@@ -61,6 +58,7 @@ public class RequestLoggingFilter extends OncePerRequestFilter {
         String queryString = request.getQueryString();
                queryString = queryString == null ? request.getRequestURI() : request.getRequestURI() + queryString;
         String contentType = request.getContentType() == null ? "" : request.getContentType();
+        String ipAddr = IPUtils.getIPAddr(request);
 
         log.debug(
               """
@@ -74,7 +72,7 @@ public class RequestLoggingFilter extends OncePerRequestFilter {
             , method
             , queryString
             , contentType
-            , IPUtils.getIPAddr(request)
+            , ipAddr
         );
 
         logPayload("Request", contentType, request.getInputStream());
