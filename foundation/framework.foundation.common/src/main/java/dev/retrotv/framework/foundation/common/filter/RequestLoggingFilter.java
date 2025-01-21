@@ -1,6 +1,7 @@
 package dev.retrotv.framework.foundation.common.filter;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import dev.retrotv.framework.foundation.common.util.IPUtils;
 import dev.retrotv.framework.foundation.common.wrapper.RequestWrapper;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ReadListener;
@@ -67,11 +68,13 @@ public class RequestLoggingFilter extends OncePerRequestFilter {
               | Method Type : {}
               | URI         : {}
               | Content-Type: {}
+              | IP Address  : {}
               ========================================================================================================
               """
             , method
             , queryString
             , contentType
+            , IPUtils.getIPAddr(request)
         );
 
         logPayload("Request", contentType, request.getInputStream());
