@@ -6,7 +6,7 @@
 
     <groupId>dev.retrotv</groupId>
     <artifactId>framework-runtime</artifactId>
-    <version>0.0.12-alpha</version>
+    <version>${revision}</version>
     <packaging>pom</packaging>
 
     <!-- 하위 모듈 -->
@@ -19,6 +19,7 @@
 
     <!-- 프로퍼티 -->
     <properties>
+        <revision>0.0.12-alpha</revision>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
