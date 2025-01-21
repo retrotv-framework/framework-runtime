@@ -10,15 +10,31 @@ class HashTest {
     @Test
     @DisplayName("Test digest")
     void test_digest() {
-
-        // Given
         String input = "test";
         Hash hash = Hash.getInstance(Hash.EHash.SHA256);
 
-        // When
         String result = hash.digest(input);
 
-        // Then
+        assertNotNull(result);
+        assertNotEquals("test", result);
+
+        result = hash.digest(input, Hash.EFormat.HEX);
+
+        assertNotNull(result);
+        assertNotEquals("test", result);
+
+        result = hash.digest(input, Hash.EFormat.BASE64);
+
+        assertNotNull(result);
+        assertNotEquals("test", result);
+
+        result = hash.digest(input, "BASE64");
+
+        assertNotNull(result);
+        assertNotEquals("test", result);
+
+        result = hash.digest(input, "HEX");
+
         assertNotNull(result);
         assertNotEquals("test", result);
     }
