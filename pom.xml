@@ -6,7 +6,7 @@
 
     <groupId>dev.retrotv</groupId>
     <artifactId>framework-runtime</artifactId>
-    <version>0.0.16-alpha</version>
+    <version>0.0.17-alpha</version>
     <packaging>pom</packaging>
 
     <!-- 하위 모듈 -->
