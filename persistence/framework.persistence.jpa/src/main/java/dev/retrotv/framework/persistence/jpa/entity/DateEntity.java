@@ -33,21 +33,21 @@ public abstract class DateEntity {
 
     @CreatedDate
     @Comment("등록일시")
-    @Column(name = "CREATED_DATE", nullable = false, updatable = false)
+    @Column(nullable = false, updatable = false)
     protected LocalDateTime createdDate;
 
     @CreatedBy
     @Comment("등록한 유저")
-    @Column(name = "CREATED_ID", length = 50, nullable = false, updatable = false)
+    @Column(length = 50, nullable = false, updatable = false)
     protected String createdId;
 
     @LastModifiedDate
     @Comment("수정일시")
-    @Column(name = "MODIFIED_DATE", nullable = false)
+    @Column(nullable = false)
     protected LocalDateTime modifiedDate;
 
     @LastModifiedBy
     @Comment("수정한 유저")
-    @Column(name = "MODIFIED_ID", length = 50, nullable = false)
+    @Column(length = 50, nullable = false)
     protected String modifiedId;
 }
