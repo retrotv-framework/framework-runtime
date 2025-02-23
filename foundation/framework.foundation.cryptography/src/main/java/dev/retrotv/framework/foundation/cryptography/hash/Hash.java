@@ -1,15 +1,23 @@
 package dev.retrotv.framework.foundation.cryptography.hash;
 
+import dev.retrotv.data.utils.ByteUtils;
+
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 
 public class Hash {
     private static Hash instance = null;
     private static EHash hashAlgorithm = null;
-    private static dev.retrotv.crypto.hash.Hash h = null;
+    private volatile static dev.retrotv.crypto.hash.Hash h = null;
 
     private Hash() {}
 
+    /**
+     * 해시 알고리즘을 선택하여 Hash 객체를 생성합니다.
+     *
+     * @param hashAlgorithm 해시 알고리즘
+     * @return Hash 객체
+     */
     public static Hash getInstance(EHash hashAlgorithm) {
         if (instance != null && getHashAlgorithm() != hashAlgorithm) {
             instance = null;
@@ -26,18 +34,46 @@ public class Hash {
         return instance;
     }
 
+    /**
+     * 데이터를 해시하고 HEX 문자열 형식으로 반환합니다.
+     *
+     * @param data 해시할 데이터
+     * @return 해시 결과
+     */
     public String digest(String data) {
         return digest(data, EFormat.HEX);
     }
 
+    /**
+     * 데이터를 UTF-8 문자셋으로 해시하고, 지정한 문자열 형식으로 반환합니다.
+     *
+     * @param data 해시할 데이터
+     * @param format 포맷 방식
+     * @return 해시 결과
+     */
     public String digest(String data, String format) {
         return digest(data, format, StandardCharsets.UTF_8);
     }
 
+    /**
+     * 데이터를 UTF-8 문자셋으로 해시하고, 지정한 문자열 형식으로 반환합니다.
+     *
+     * @param data 해시할 데이터
+     * @param format 포맷 방식
+     * @return 해시 결과
+     */
     public String digest(String data, EFormat format) {
         return digest(data, format, StandardCharsets.UTF_8);
     }
 
+    /**
+     * 데이터를 지정한 문자셋으로 해시하고, 지정한 문자열 형식으로 반환합니다.
+     *
+     * @param data 해시할 데이터
+     * @param format 포맷 방식
+     * @param charset 문자셋
+     * @return 해시 결과
+     */
     public String digest(String data, String format, Charset charset) {
         if ("BASE64".equals(format)) {
             return digest(data, EFormat.BASE64, charset);
@@ -48,11 +84,23 @@ public class Hash {
         }
     }
 
+    /**
+     * 데이터를 지정한 문자셋으로 해시하고, 지정한 문자열 형식으로 반환합니다.
+     *
+     * @param data 해시할 데이터
+     * @param format 포맷 방식
+     * @param charset 문자셋
+     * @return 해시 결과
+     */
     public String digest(String data, EFormat format, Charset charset) {
         if (EFormat.BASE64.equals(format)) {
-            return toBase64(h.hashing(data.getBytes(charset)));
+            return ByteUtils.toBase64String(
+                h.hashing(data.getBytes(charset))
+            );
         } else if (EFormat.HEX.equals(format)) {
-            return toHex(h.hashing(data.getBytes(charset)));
+            return ByteUtils.toHexString(
+                h.hashing(data.getBytes(charset))
+            );
         } else {
             throw new IllegalArgumentException("Invalid format");
         }
@@ -96,6 +144,12 @@ public class Hash {
         }
     }
 
+    /**
+     * 해시 결과물의 포맷 방식을 표현하기 위한 열거형 클래스 입니다.
+     *
+     * @author yjj8353
+     * @since 1.0.0
+     */
     public enum EFormat {
         HEX("HEX"),
         BASE64("BASE64");
@@ -137,26 +191,5 @@ public class Hash {
             case SHA3384 -> dev.retrotv.crypto.enums.EHash.SHA3384;
             case SHA3512 -> dev.retrotv.crypto.enums.EHash.SHA3512;
         };
-    }
-
-    private String toHex(byte[] bytes) {
-        if (bytes == null) {
-            return "";
-        }
-
-        StringBuilder sb = new StringBuilder();
-        for (byte b : bytes) {
-            sb.append(String.format("%02x", b));
-        }
-
-        return sb.toString();
-    }
-
-    private String toBase64(byte[] bytes) {
-        if (bytes == null) {
-            return "";
-        }
-
-        return new String(java.util.Base64.getEncoder().encode(bytes), StandardCharsets.UTF_8);
     }
 }
