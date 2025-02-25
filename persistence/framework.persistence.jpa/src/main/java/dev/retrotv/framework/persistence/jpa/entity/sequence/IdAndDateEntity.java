@@ -3,7 +3,6 @@ package dev.retrotv.framework.persistence.jpa.entity.sequence;
 import dev.retrotv.framework.persistence.jpa.entity.DateEntity;
 import org.hibernate.annotations.Comment;
 
-import jakarta.persistence.Column;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;

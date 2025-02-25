@@ -8,7 +8,7 @@ import java.nio.charset.StandardCharsets;
 public class Hash {
     private static Hash instance = null;
     private static EHash hashAlgorithm = null;
-    private volatile static dev.retrotv.crypto.hash.Hash h = null;
+    private static volatile dev.retrotv.crypto.hash.Hash h = null;
 
     private Hash() {}
 
