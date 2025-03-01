@@ -61,14 +61,15 @@ public class RequestLoggingFilter extends OncePerRequestFilter {
         String ipAddr = IPUtils.getIPAddr(request);
 
         log.debug(
-              """
-              ========================================================================================================
-              | Method Type : {}
-              | URI         : {}
-              | Content-Type: {}
-              | IP Address  : {}
-              ========================================================================================================
-              """
+            "\n" +
+            """
+            ========================================================================================================
+            | Method Type : {}
+            | URI         : {}
+            | Content-Type: {}
+            | IP Address  : {}
+            ========================================================================================================
+            """
             , method
             , queryString
             , contentType
@@ -99,6 +100,7 @@ public class RequestLoggingFilter extends OncePerRequestFilter {
                 String jsonContentString = objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(jsonObject);
 
                 log.debug(
+                     "\n" +
                      """
                      ========================================================================================================
                      {}
@@ -113,6 +115,7 @@ public class RequestLoggingFilter extends OncePerRequestFilter {
             }
         } else {
             log.debug(
+                  "\n" +
                   """
                   {}
                   

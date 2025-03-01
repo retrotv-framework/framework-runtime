@@ -6,7 +6,7 @@
 
     <groupId>dev.retrotv</groupId>
     <artifactId>framework-runtime</artifactId>
-    <version>0.0.20-alpha</version>
+    <version>0.0.21-alpha</version>
     <packaging>pom</packaging>
 
     <!-- 하위 모듈 -->
@@ -44,7 +44,7 @@
         <sonar.host.url>https://sonarcloud.io</sonar.host.url>
         <sonar.jacoco.reportPath>${project.basedir}/../target/jacoco.exec</sonar.jacoco.reportPath>
         <sonar.coverage.exclusions>
-            **/foundation/common/**,**/jpa/*,**/Abstract*.java,FileUtil.java,FileVO.java
+            **/foundation/common/**,**/jpa/*,**/Abstract*.java,FileUtil.java,FileVO.java,**/*NamingStrategy.java
         </sonar.coverage.exclusions>
         <sonar.jacoco.reportsPaths>
             ${project.build.directory}/jacoco-ut.exec

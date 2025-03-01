@@ -6,11 +6,13 @@ import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 
 public class Hash {
-    private static Hash instance = null;
-    private static EHash hashAlgorithm = null;
-    private volatile static dev.retrotv.crypto.hash.Hash h = null;
+    private static dev.retrotv.crypto.hash.Hash h = null;
 
     private Hash() {}
+
+    private static class HashInstanceHolder {
+        private static final Hash INSTANCE = new Hash();
+    }
 
     /**
      * 해시 알고리즘을 선택하여 Hash 객체를 생성합니다.
@@ -19,17 +21,8 @@ public class Hash {
      * @return Hash 객체
      */
     public static Hash getInstance(EHash hashAlgorithm) {
-        if (instance != null && getHashAlgorithm() != hashAlgorithm) {
-            instance = null;
-        }
-
-        if (instance == null) {
-            synchronized (Hash.class) {
-                instance = new Hash();
-                Hash.hashAlgorithm = hashAlgorithm;
-                Hash.h = dev.retrotv.crypto.hash.Hash.getInstance(selectHashAlgorithm(hashAlgorithm));
-            }
-        }
+        Hash instance = HashInstanceHolder.INSTANCE;
+        Hash.h = dev.retrotv.crypto.hash.Hash.getInstance(selectHashAlgorithm(hashAlgorithm));
 
         return instance;
     }
@@ -168,10 +161,6 @@ public class Hash {
         public String label() {
             return label;
         }
-    }
-
-    private static EHash getHashAlgorithm() {
-        return hashAlgorithm;
     }
 
     private static dev.retrotv.crypto.enums.EHash selectHashAlgorithm(EHash hashAlgorithm) {
