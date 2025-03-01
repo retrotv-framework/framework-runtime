@@ -62,7 +62,7 @@ public class RequestLoggingFilter extends OncePerRequestFilter {
 
         log.debug(
               """
-              
+              \n
               ========================================================================================================
               | Method Type : {}
               | URI         : {}
@@ -101,7 +101,7 @@ public class RequestLoggingFilter extends OncePerRequestFilter {
 
                 log.debug(
                      """
-                     
+                     \n
                      ========================================================================================================
                      {}
                      
@@ -116,7 +116,7 @@ public class RequestLoggingFilter extends OncePerRequestFilter {
         } else {
             log.debug(
                   """
-                  
+                  \n
                   {}
                   
                   Payload:
