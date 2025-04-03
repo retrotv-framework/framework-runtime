@@ -19,6 +19,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <data-utils.version>0.21.6-alpha</data-utils.version>
         <cryptography.version>0.47.2-alpha</cryptography.version>
+        <bouncycastle.version>1.80</bouncycastle.version>
     </properties>
 
     <dependencies>
@@ -46,6 +47,11 @@
             <groupId>com.github.retrotv-maven-repo.cryptography</groupId>
             <artifactId>cryptography-password</artifactId>
             <version>${cryptography.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.bouncycastle</groupId>
+            <artifactId>bcprov-jdk18on</artifactId>
+            <version>${bouncycastle.version}</version>
         </dependency>
     </dependencies>
 </project>

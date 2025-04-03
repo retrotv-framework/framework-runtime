@@ -29,9 +29,9 @@ public class AccessDeniedException extends ResponseErrorException {
      * 메시지와 예외를 받아 예외를 생성
      *
      * @param message 메시지
-     * @param throwable 예외
+     * @param cause 예외
      */
-    public AccessDeniedException(String message, Throwable throwable) {
-        super(message, throwable);
+    public AccessDeniedException(String message, Throwable cause) {
+        super(message, cause);
     }
 }
