@@ -1,28 +1,28 @@
-package dev.retrotv.framework.foundation.cryptography.hash;
+package dev.retrotv.framework.foundation.cryptography.digest;
 
 import dev.retrotv.data.utils.ByteUtils;
 
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 
-public class Hash {
+public class Digest {
     private static dev.retrotv.crypto.hash.Hash h = null;
 
-    private Hash() {}
+    private Digest() {}
 
-    private static class HashInstanceHolder {
-        private static final Hash INSTANCE = new Hash();
+    private static class DigestInstanceHolder {
+        private static final Digest INSTANCE = new Digest();
     }
 
     /**
-     * 해시 알고리즘을 선택하여 Hash 객체를 생성합니다.
+     * 해시 알고리즘을 선택하여 Digest 객체를 생성합니다.
      *
      * @param hashAlgorithm 해시 알고리즘
      * @return Hash 객체
      */
-    public static Hash getInstance(EHash hashAlgorithm) {
-        Hash instance = HashInstanceHolder.INSTANCE;
-        Hash.h = dev.retrotv.crypto.hash.Hash.getInstance(selectHashAlgorithm(hashAlgorithm));
+    public static Digest getInstance(EHash hashAlgorithm) {
+        Digest instance = DigestInstanceHolder.INSTANCE;
+        dev.retrotv.framework.foundation.cryptography.digest.Digest.h = dev.retrotv.crypto.hash.Hash.getInstance(selectHashAlgorithm(hashAlgorithm));
 
         return instance;
     }
