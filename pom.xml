@@ -192,7 +192,6 @@
             <version>${slf4j.version}</version>
         </dependency>
 
-
         <!-- 테스트용 라이브러리 -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>

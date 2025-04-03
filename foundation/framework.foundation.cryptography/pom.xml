@@ -24,6 +24,12 @@
 
     <dependencies>
         <dependency>
+            <groupId>dev.retrotv</groupId>
+            <artifactId>framework.foundation.common</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
+        <dependency>
             <groupId>com.github.retrotv-maven-repo</groupId>
             <artifactId>data-utils</artifactId>
             <version>${data-utils.version}</version>
@@ -48,6 +54,7 @@
             <artifactId>cryptography-password</artifactId>
             <version>${cryptography.version}</version>
         </dependency>
+
         <dependency>
             <groupId>org.bouncycastle</groupId>
             <artifactId>bcprov-jdk18on</artifactId>
