@@ -8,10 +8,10 @@ import dev.retrotv.framework.foundation.common.exception.BaseRuntimeException;
 import dev.retrotv.framework.foundation.cryptography.digest.GeneralDigest;
 import dev.retrotv.framework.foundation.cryptography.digest.enums.DigestAlgorithm;
 
-public class SHA1 extends GeneralDigest {
-    public SHA1() {
+public class SHA512224 extends GeneralDigest {
+    public SHA512224() {
         super();
-        algorithmName = DigestAlgorithm.SHA1.getName();
+        algorithmName = DigestAlgorithm.SHA512224.getName();
     }
 
     public String getAlgorithmName() {

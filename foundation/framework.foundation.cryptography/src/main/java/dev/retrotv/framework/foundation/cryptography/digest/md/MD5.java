@@ -1,4 +1,4 @@
-package dev.retrotv.framework.foundation.cryptography.digest.sha;
+package dev.retrotv.framework.foundation.cryptography.digest.md;
 
 import java.io.IOException;
 import java.security.MessageDigest;
@@ -8,10 +8,10 @@ import dev.retrotv.framework.foundation.common.exception.BaseRuntimeException;
 import dev.retrotv.framework.foundation.cryptography.digest.GeneralDigest;
 import dev.retrotv.framework.foundation.cryptography.digest.enums.DigestAlgorithm;
 
-public class SHA1 extends GeneralDigest {
-    public SHA1() {
+public class MD5 extends GeneralDigest {
+    public MD5() {
         super();
-        algorithmName = DigestAlgorithm.SHA1.getName();
+        algorithmName = DigestAlgorithm.MD5.getName();
     }
 
     public String getAlgorithmName() {
