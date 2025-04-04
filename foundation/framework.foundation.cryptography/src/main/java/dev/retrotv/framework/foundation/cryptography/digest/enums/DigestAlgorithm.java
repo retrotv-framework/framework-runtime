@@ -1,5 +1,8 @@
 package dev.retrotv.framework.foundation.cryptography.digest.enums;
 
+import lombok.Getter;
+
+@Getter
 public enum DigestAlgorithm {
     CRC32("CRC-32"),
     MD2("MD2"),
@@ -20,9 +23,5 @@ public enum DigestAlgorithm {
 
     DigestAlgorithm(String name) {
         this.name = name;
-    }
-
-    public String getName() {
-        return name;
     }
 }

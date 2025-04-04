@@ -11,8 +11,7 @@ import org.springframework.http.HttpStatus;
  * @param <T> 데이터 타입
  */
 @Getter
-public class SingleDataResponse<T> extends BasicResponse {
-    private final T data;
+public class SingleDataResponse<T> extends DataResponse<T> {
 
     /**
      * 데이터를 받아 응답 객체를 생성합니다.
@@ -20,7 +19,7 @@ public class SingleDataResponse<T> extends BasicResponse {
      * @param data 응답 데이터
      */
     public SingleDataResponse(T data) {
-        this.data = data;
+        super(data);
     }
 
     /**
@@ -30,8 +29,7 @@ public class SingleDataResponse<T> extends BasicResponse {
      * @param data 응답 데이터
      */
     public SingleDataResponse(String message, T data) {
-        super(message);
-        this.data = data;
+        super(message, data);
     }
 
     /**
@@ -42,8 +40,7 @@ public class SingleDataResponse<T> extends BasicResponse {
      * @param httpStatusCode HTTP 상태 코드 (int)
      */
     public SingleDataResponse(String message, T data, int httpStatusCode) {
-        super(message, httpStatusCode);
-        this.data = data;
+        super(message, httpStatusCode, data);
     }
 
     /**
@@ -54,7 +51,6 @@ public class SingleDataResponse<T> extends BasicResponse {
      * @param httpStatus HTTP 상태 코드 (HttpStatus enum)
      */
     public SingleDataResponse(String message, T data, HttpStatus httpStatus) {
-        super(message, httpStatus);
-        this.data = data;
+        super(message, httpStatus, data);
     }
 }

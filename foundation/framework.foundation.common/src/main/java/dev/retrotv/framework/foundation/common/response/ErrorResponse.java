@@ -8,14 +8,13 @@ import org.springframework.http.HttpStatus;
  * @since 1.0.0
  * @version 1.0.0
  */
-public class ErrorResponse extends BasicResponse {
+public class ErrorResponse extends Response {
 
     /**
      * 기본 에러 응답 객체 생성
      */
     public ErrorResponse() {
-        super("요청을 처리하는 중 오류가 발생했습니다.", HttpStatus.INTERNAL_SERVER_ERROR);
-        this.success = false;
+        super(false, "요청을 처리하는 중 오류가 발생했습니다.", HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
     /**
@@ -24,8 +23,7 @@ public class ErrorResponse extends BasicResponse {
      * @param message 응답 메시지
      */
     public ErrorResponse(String message) {
-        super(message, 500);
-        this.success = false;
+        super(false, message, HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
     /**
@@ -35,8 +33,7 @@ public class ErrorResponse extends BasicResponse {
      * @param httpStatusCode HTTP 상태 코드 (int)
      */
     public ErrorResponse(String message, int httpStatusCode) {
-        super(message, httpStatusCode);
-        this.success = false;
+        super(false, message, HttpStatus.valueOf(httpStatusCode));
     }
 
     /**
@@ -46,7 +43,6 @@ public class ErrorResponse extends BasicResponse {
      * @param httpStatus HTTP 상태 코드 (HttpStatus enum)
      */
     public ErrorResponse(String message, HttpStatus httpStatus) {
-        super(message, httpStatus);
-        this.success = false;
+        super(false, message, httpStatus);
     }
 }
