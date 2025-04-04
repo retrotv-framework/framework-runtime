@@ -29,6 +29,7 @@
         <!-- 라이브러리 -->
         <lombok.version>1.18.36</lombok.version>
         <spring-boot.version>3.4.2</spring-boot.version>
+        <mokito.version>5.16.1</mokito.version>
         <junit.version>5.11.4</junit.version>
         <assertj.version>3.27.0</assertj.version>
         <log4j.version>2.24.3</log4j.version>
@@ -193,6 +194,13 @@
         </dependency>
 
         <!-- 테스트용 라이브러리 -->
+        <!-- https://mvnrepository.com/artifact/org.mockito/mockito-core -->
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-core</artifactId>
+            <version>${mokito.version}</version>
+            <scope>test</scope>
+        </dependency>
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-api</artifactId>
