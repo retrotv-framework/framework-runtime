@@ -1,20 +1,18 @@
 package dev.retrotv.framework.foundation.cryptography.digest.crc;
 
-import dev.retrotv.data.utils.ByteUtils;
+import dev.retrotv.framework.foundation.cryptography.digest.StringDigest;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import dev.retrotv.framework.foundation.cryptography.digest.StringDigest;
+import java.nio.charset.StandardCharsets;
 
 import static org.junit.jupiter.api.Assertions.*;
-
-import java.nio.charset.StandardCharsets;
 
 public class CRC32Test {
     
     @Test
     @DisplayName("CRC32 체크섬 알고리즘 테스트")
-    void test_CRC32() throws Exception {
+    void test_CRC32() {
         String input1 = "The quick brown fox jumps over the lazy dog";
         String input2 = "The quick brown fox jumps over the lazy dog!";
  
@@ -36,7 +34,7 @@ public class CRC32Test {
 
     @Test
     @DisplayName("CRC32 체크섬 알고리즘 테스트 - 문자열")
-    void test_CRC32_String() throws Exception {
+    void test_CRC32_String() {
         String input1 = "The quick brown fox jumps over the lazy dog";
         String input2 = "The quick brown fox jumps over the lazy dog!";
 

@@ -1,13 +1,12 @@
 package dev.retrotv.framework.foundation.cryptography.digest.md;
 
+import dev.retrotv.framework.foundation.cryptography.digest.StringDigest;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import dev.retrotv.framework.foundation.cryptography.digest.StringDigest;
+import java.nio.charset.StandardCharsets;
 
 import static org.junit.jupiter.api.Assertions.*;
-
-import java.nio.charset.StandardCharsets;
 
 public class MD5Test {
     

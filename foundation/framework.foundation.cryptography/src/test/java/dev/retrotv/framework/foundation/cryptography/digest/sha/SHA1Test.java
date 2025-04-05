@@ -1,14 +1,13 @@
 package dev.retrotv.framework.foundation.cryptography.digest.sha;
 
 import dev.retrotv.data.utils.ByteUtils;
+import dev.retrotv.framework.foundation.cryptography.digest.StringDigest;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import dev.retrotv.framework.foundation.cryptography.digest.StringDigest;
+import java.nio.charset.StandardCharsets;
 
 import static org.junit.jupiter.api.Assertions.*;
-
-import java.nio.charset.StandardCharsets;
 
 public class SHA1Test {
     

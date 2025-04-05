@@ -1,20 +1,18 @@
 package dev.retrotv.framework.foundation.cryptography.digest.sha;
 
-import dev.retrotv.data.utils.ByteUtils;
+import dev.retrotv.framework.foundation.cryptography.digest.StringDigest;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import dev.retrotv.framework.foundation.cryptography.digest.StringDigest;
+import java.nio.charset.StandardCharsets;
 
 import static org.junit.jupiter.api.Assertions.*;
-
-import java.nio.charset.StandardCharsets;
 
 public class SHA512256Test {
     
     @Test
     @DisplayName("SHA512/256 해시 알고리즘 테스트")
-    void test_SHA512256() throws Exception {
+    void test_SHA512256() {
         String input1 = "The quick brown fox jumps over the lazy dog";
         String input2 = "The quick brown fox jumps over the lazy dog!";
  
@@ -36,7 +34,7 @@ public class SHA512256Test {
 
     @Test
     @DisplayName("SHA512/256 해시 알고리즘 테스트 - 문자열")
-    void test_SHA512256_String() throws Exception {
+    void test_SHA512256_String() {
         String input1 = "The quick brown fox jumps over the lazy dog";
         String input2 = "The quick brown fox jumps over the lazy dog!";
 
