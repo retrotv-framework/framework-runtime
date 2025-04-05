@@ -1,5 +1,6 @@
 package dev.retrotv.framework.foundation.cryptography.digest.sha;
 
+import dev.retrotv.data.utils.ByteUtils;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -51,7 +52,7 @@ public class SHA512224Test {
         assertArrayEquals(result1, result3);
 
         for (int i = 0; i < 1000; i++) {
-            byte[] result4 = sha512224.digest(input1, StandardCharsets.UTF_8);
+            byte[] result4 = sha512224.digest(input1);
             assertNotNull(result4);
             assertArrayEquals(result1, result4);
         }

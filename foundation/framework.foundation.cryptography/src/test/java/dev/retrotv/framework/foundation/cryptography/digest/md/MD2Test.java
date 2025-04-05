@@ -13,7 +13,7 @@ public class MD2Test {
     
     @Test
     @DisplayName("MD2 해시 알고리즘 테스트")
-    void test_MD2() throws Exception {
+    void test_MD2() {
         String input1 = "The quick brown fox jumps over the lazy dog";
         String input2 = "The quick brown fox jumps over the lazy dog!";
  
@@ -35,7 +35,7 @@ public class MD2Test {
 
     @Test
     @DisplayName("MD2 해시 알고리즘 테스트 - 문자열")
-    void test_MD2_String() throws Exception {
+    void test_MD2_String() {
         String input1 = "The quick brown fox jumps over the lazy dog";
         String input2 = "The quick brown fox jumps over the lazy dog!";
 
@@ -51,7 +51,7 @@ public class MD2Test {
         assertArrayEquals(result1, result3);
 
         for (int i = 0; i < 1000; i++) {
-            byte[] result4 = md2.digest(input1, StandardCharsets.UTF_8);
+            byte[] result4 = md2.digest(input1);
             assertNotNull(result4);
             assertArrayEquals(result1, result4);
         }
