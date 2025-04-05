@@ -8,7 +8,7 @@ import dev.retrotv.framework.foundation.common.exception.BaseRuntimeException;
 import lombok.Getter;
 
 @Getter
-abstract public class GeneralDigest implements FileDigest, StringDigest {
+public abstract class GeneralDigest implements FileDigest, StringDigest {
     protected String algorithmName;
 
     public String getAlgorithmName() {

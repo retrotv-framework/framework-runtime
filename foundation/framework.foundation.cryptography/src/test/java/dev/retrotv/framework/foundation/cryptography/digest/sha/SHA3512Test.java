@@ -16,9 +16,9 @@ class SHA3512Test {
         String input1 = "The quick brown fox jumps over the lazy dog";
         String input2 = "The quick brown fox jumps over the lazy dog!";
  
-        SHA3_512 sha3_512 = new SHA3_512();
-        byte[] result1 = sha3_512.digest(input1);
-        byte[] result2 = sha3_512.digest(input2);
+        SHA3512 sha3512 = new SHA3512();
+        byte[] result1 = sha3512.digest(input1);
+        byte[] result2 = sha3512.digest(input2);
 
         assertNotNull(result1);
         assertNotNull(result2);
@@ -26,7 +26,7 @@ class SHA3512Test {
         assertNotEquals(result1, result2);
 
         for (int i = 0; i < 1000; i++) {
-            byte[] result3 = sha3_512.digest(input1);
+            byte[] result3 = sha3512.digest(input1);
             assertNotNull(result3);
             assertArrayEquals(result1, result3);
         }
@@ -38,7 +38,7 @@ class SHA3512Test {
         String input1 = "The quick brown fox jumps over the lazy dog";
         String input2 = "The quick brown fox jumps over the lazy dog!";
 
-        StringDigest sha3_512 = new SHA3_512();
+        StringDigest sha3_512 = new SHA3512();
         byte[] result1 = sha3_512.digest(input1);
         byte[] result2 = sha3_512.digest(input2, "UTF-8");
         byte[] result3 = sha3_512.digest(input1, StandardCharsets.UTF_8);
