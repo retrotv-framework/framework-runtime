@@ -5,6 +5,7 @@ import lombok.Getter;
 @Getter
 public enum DigestAlgorithm {
     CRC32("CRC-32"),
+    CRC32C("CRC-32C"),
     MD2("MD2"),
     MD5("MD5"),
     SHA1("SHA-1"),
