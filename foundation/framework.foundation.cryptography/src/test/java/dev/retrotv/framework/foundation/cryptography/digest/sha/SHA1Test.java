@@ -9,7 +9,7 @@ import java.nio.charset.StandardCharsets;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class SHA1Test {
+class SHA1Test {
     
     @Test
     @DisplayName("SHA1 해시 알고리즘 테스트")

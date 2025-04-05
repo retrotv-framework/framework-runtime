@@ -8,7 +8,7 @@ import java.nio.charset.StandardCharsets;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class SHA512224Test {
+class SHA512224Test {
     
     @Test
     @DisplayName("SHA512/224 해시 알고리즘 테스트")

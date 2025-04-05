@@ -8,7 +8,7 @@ import java.nio.charset.StandardCharsets;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class CRC32CTest {
+class CRC32CTest {
     
     @Test
     @DisplayName("CRC32C 체크섬 알고리즘 테스트")

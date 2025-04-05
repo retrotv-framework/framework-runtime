@@ -8,7 +8,7 @@ import java.nio.charset.StandardCharsets;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class MD5Test {
+class MD5Test {
     
     @Test
     @DisplayName("MD5 해시 알고리즘 테스트")
