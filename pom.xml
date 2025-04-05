@@ -28,7 +28,7 @@
 
         <!-- 라이브러리 -->
         <lombok.version>1.18.36</lombok.version>
-        <spring-boot.version>3.4.2</spring-boot.version>
+        <spring-boot.version>3.4.4</spring-boot.version>
         <mokito.version>5.16.1</mokito.version>
         <junit.version>5.11.4</junit.version>
         <assertj.version>3.27.0</assertj.version>
