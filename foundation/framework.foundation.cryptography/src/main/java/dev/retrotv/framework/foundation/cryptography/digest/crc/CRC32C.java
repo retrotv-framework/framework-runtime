@@ -1,6 +1,5 @@
 package dev.retrotv.framework.foundation.cryptography.digest.crc;
 
-import java.io.IOException;
 import java.nio.ByteBuffer;
 
 import dev.retrotv.framework.foundation.cryptography.digest.GeneralDigest;
@@ -13,7 +12,7 @@ public class CRC32C extends GeneralDigest{
     }
 
     @Override
-    public byte[] digest(byte[] data) throws IOException {
+    public byte[] digest(byte[] data) {
         java.util.zip.CRC32C crc = new java.util.zip.CRC32C();
         crc.update(data);
         long checksum = crc.getValue();
