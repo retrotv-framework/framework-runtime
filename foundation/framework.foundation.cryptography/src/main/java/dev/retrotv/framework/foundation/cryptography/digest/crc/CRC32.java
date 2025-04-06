@@ -5,7 +5,7 @@ import java.nio.ByteBuffer;
 import dev.retrotv.framework.foundation.cryptography.digest.GeneralDigest;
 import dev.retrotv.framework.foundation.cryptography.digest.enums.DigestAlgorithm;
 
-public class CRC32 extends GeneralDigest{
+public class CRC32 extends GeneralDigest {
     public CRC32() {
         super();
         algorithmName = DigestAlgorithm.CRC32.getName();
