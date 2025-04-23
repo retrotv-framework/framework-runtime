@@ -9,7 +9,7 @@
     <parent>
         <groupId>dev.retrotv</groupId>
         <artifactId>framework-runtime</artifactId>
-        <version>0.0.21-alpha</version>
+        <version>0.0.22-alpha</version>
         <relativePath>../../pom.xml</relativePath>
     </parent>
 
@@ -19,9 +19,16 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <data-utils.version>0.21.6-alpha</data-utils.version>
         <cryptography.version>0.47.2-alpha</cryptography.version>
+        <bouncycastle.version>1.80</bouncycastle.version>
     </properties>
 
     <dependencies>
+        <dependency>
+            <groupId>dev.retrotv</groupId>
+            <artifactId>framework.foundation.common</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
         <dependency>
             <groupId>com.github.retrotv-maven-repo</groupId>
             <artifactId>data-utils</artifactId>
@@ -46,6 +53,12 @@
             <groupId>com.github.retrotv-maven-repo.cryptography</groupId>
             <artifactId>cryptography-password</artifactId>
             <version>${cryptography.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.bouncycastle</groupId>
+            <artifactId>bcprov-jdk18on</artifactId>
+            <version>${bouncycastle.version}</version>
         </dependency>
     </dependencies>
 </project>

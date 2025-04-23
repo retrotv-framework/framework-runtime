@@ -30,9 +30,9 @@ public abstract class ResponseErrorException extends RuntimeException {
      * 메시지와 예외를 받아 예외를 생성
      *
      * @param message 메시지
-     * @param throwable 예외
+     * @param cause 예외
      */
-    ResponseErrorException(String message, Throwable throwable) {
-        super(message, throwable);
+    ResponseErrorException(String message, Throwable cause) {
+        super(message, cause);
     }
 }

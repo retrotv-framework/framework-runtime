@@ -1,11 +1,8 @@
 package dev.retrotv.framework.persistence.jpa.entity.sequence;
 
+import jakarta.persistence.*;
 import org.hibernate.annotations.Comment;
 
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.MappedSuperclass;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -26,6 +23,7 @@ public abstract class IdEntity {
     
     @Id
     @Comment("식별자")
+    @Column(name = "ID")
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     protected Long id;
 }

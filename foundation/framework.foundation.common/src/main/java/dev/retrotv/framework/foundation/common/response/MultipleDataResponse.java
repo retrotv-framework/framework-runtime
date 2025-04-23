@@ -13,16 +13,15 @@ import java.util.Collection;
  * @param <T> 데이터 타입
  */
 @Getter
-public class MultipleDataResponse<T> extends BasicResponse {
-    private final Collection<T> data;
+public class MultipleDataResponse<C extends Collection<T>, T> extends DataResponse<C> {
 
     /**
      * 데이터를 받아 응답 객체를 생성합니다.
      *
      * @param data 응답 데이터
      */
-    public MultipleDataResponse(Collection<T> data) {
-        this.data = data;
+    public MultipleDataResponse(C data) {
+        super(data);
     }
 
     /**
@@ -31,9 +30,8 @@ public class MultipleDataResponse<T> extends BasicResponse {
      * @param message 응답 메시지
      * @param data    응답 데이터
      */
-    public MultipleDataResponse(String message, Collection<T> data) {
-        super(message);
-        this.data = data;
+    public MultipleDataResponse(String message, C data) {
+        super(message, data);
     }
 
     /**
@@ -43,9 +41,8 @@ public class MultipleDataResponse<T> extends BasicResponse {
      * @param data           응답 데이터
      * @param httpStatusCode HTTP 상태 코드 (int)
      */
-    public MultipleDataResponse(String message, Collection<T> data, int httpStatusCode) {
-        super(message, httpStatusCode);
-        this.data = data;
+    public MultipleDataResponse(String message, int httpStatusCode, C data) {
+        super(message, httpStatusCode, data);
     }
 
     /**
@@ -55,8 +52,16 @@ public class MultipleDataResponse<T> extends BasicResponse {
      * @param data        응답 데이터
      * @param httpStatus  HTTP 상태 코드 (HttpStatus enum)
      */
-    public MultipleDataResponse(String message, Collection<T> data, HttpStatus httpStatus) {
-        super(message, httpStatus);
-        this.data = data;
+    public MultipleDataResponse(String message, HttpStatus httpStatus, C data) {
+        super(message, httpStatus, data);
+    }
+
+    /**
+     * 데이터의 개수를 반환합니다.
+     *
+     * @return 데이터 개수
+     */
+    public int getDataSize() {
+        return data != null ? data.size() : 0;
     }
 }
