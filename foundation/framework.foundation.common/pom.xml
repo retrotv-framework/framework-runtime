@@ -9,7 +9,7 @@
     <parent>
         <groupId>dev.retrotv</groupId>
         <artifactId>framework-runtime</artifactId>
-        <version>0.0.21-alpha</version>
+        <version>0.0.22-alpha</version>
         <relativePath>../../pom.xml</relativePath>
     </parent>
 

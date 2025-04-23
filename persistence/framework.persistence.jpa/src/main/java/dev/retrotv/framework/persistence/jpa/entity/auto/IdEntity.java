@@ -1,9 +1,6 @@
 package dev.retrotv.framework.persistence.jpa.entity.auto;
 
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.MappedSuperclass;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -25,6 +22,7 @@ public abstract class IdEntity {
     
     @Id
     @Comment("식별자")
+    @Column(name = "ID")
     @GeneratedValue(strategy = GenerationType.AUTO)
     protected Long id;
 }
