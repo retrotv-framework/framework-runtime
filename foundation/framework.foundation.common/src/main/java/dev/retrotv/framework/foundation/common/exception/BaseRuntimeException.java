@@ -12,13 +12,6 @@ package dev.retrotv.framework.foundation.common.exception;
 public class BaseRuntimeException extends RuntimeException {
 
     /**
-     * 기본 생성자
-     */
-    public BaseRuntimeException() {
-        super();
-    }
-
-    /**
      * 메시지를 받아 예외를 생성
      *
      * @param message 메시지
