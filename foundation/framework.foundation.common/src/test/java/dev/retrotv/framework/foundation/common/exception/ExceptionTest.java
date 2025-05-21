@@ -1,12 +1,13 @@
 package dev.retrotv.framework.foundation.common.exception;
 
 import dev.retrotv.framework.foundation.common.exception.http.*;
+import dev.retrotv.framework.foundation.common.exception.property.IllegalPropertyException;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class ResponseErrorExceptionTest {
+class ExceptionTest {
 
     @Test
     @DisplayName("AccessDeniedException 테스트")
@@ -72,6 +73,37 @@ class ResponseErrorExceptionTest {
 
         Throwable cause = new Throwable("Cause");
         exception = new InternalServerErrorException(message, cause);
+        assertEquals(message, exception.getMessage());
+        assertEquals(cause, exception.getCause());
+    }
+
+    @Test
+    @DisplayName("IllegalPropertyException 테스트")
+    void testIllegalPropertyException() {
+        String message = "잘못된 프로퍼티 값 입니다.";
+
+        IllegalPropertyException exception = new IllegalPropertyException();
+        assertEquals(message, exception.getMessage());
+
+        exception = new IllegalPropertyException(message);
+        assertEquals(message, exception.getMessage());
+
+        Throwable cause = new Throwable("Cause");
+        exception = new IllegalPropertyException(message, cause);
+        assertEquals(message, exception.getMessage());
+        assertEquals(cause, exception.getCause());
+    }
+
+    @Test
+    @DisplayName("BaseRuntimeException 테스트")
+    void testBaseRuntimeException() {
+        String message = "기본 런타임 예외입니다.";
+
+        BaseRuntimeException exception = new BaseRuntimeException(message);
+        assertEquals(message, exception.getMessage());
+
+        Throwable cause = new Throwable("Cause");
+        exception = new BaseRuntimeException(message, cause);
         assertEquals(message, exception.getMessage());
         assertEquals(cause, exception.getCause());
     }
