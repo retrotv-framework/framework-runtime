@@ -11,13 +11,6 @@ package dev.retrotv.framework.foundation.common.exception.http;
 public abstract class ResponseErrorException extends RuntimeException {
 
     /**
-     * 기본 생성자
-     */
-    ResponseErrorException() {
-        super();
-    }
-
-    /**
      * 메시지를 받아 예외를 생성
      *
      * @param message 메시지
