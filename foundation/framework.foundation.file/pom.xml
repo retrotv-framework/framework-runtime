@@ -17,8 +17,11 @@
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <fileupload.version>2.0.0-M2</fileupload.version>
-        <cryptography.version>0.47.2-alpha</cryptography.version>
+        <fileupload.version>2.0.0-M4</fileupload.version>
+        <common-io.version>2.19.0</common-io.version>
+        <cryptography.version>0.51.0-alpha</cryptography.version>
+        <uuid.version>6.1.0</uuid.version>
+        <extended-file.version>1.3.0</extended-file.version>
     </properties>
 
     <dependencies>
@@ -29,9 +32,24 @@
             <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>com.github.retrotv-maven-repo.cryptography</groupId>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>${common-io.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>dev.retrotv</groupId>
             <artifactId>cryptography-hash</artifactId>
             <version>${cryptography.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.github.f4b6a3</groupId>
+            <artifactId>uuid-creator</artifactId>
+            <version>${uuid.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>dev.retrotv</groupId>
+            <artifactId>extended-file</artifactId>
+            <version>${extended-file.version}</version>
         </dependency>
     </dependencies>
 </project>

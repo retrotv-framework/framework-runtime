@@ -61,7 +61,7 @@ public class FileUtils {
      * 파일을 물리적으로 저장하고, 저장된 파일들의 정보를 {@code List<FileVO>} 형식으로 반환.
      *
      * @param files HttpServletRequest에서 추출한 파일 목록
-     * @param subDir 상세경로
+     * @param subDir 저장경로
      * @return 저장된 파일 정보가 담긴 리스트
      * @throws IOException 파일 저장 도중 오류가 발생하면 던져짐
      */
