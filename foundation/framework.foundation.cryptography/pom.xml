@@ -17,9 +17,9 @@
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <data-utils.version>0.21.6-alpha</data-utils.version>
-        <cryptography.version>0.47.2-alpha</cryptography.version>
-        <bouncycastle.version>1.80</bouncycastle.version>
+        <data-utils.version>0.23.0-alpha</data-utils.version>
+        <cryptography.version>0.50.4-alpha</cryptography.version>
+        <bouncycastle.version>1.81</bouncycastle.version>
     </properties>
 
     <dependencies>
