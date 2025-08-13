@@ -37,14 +37,16 @@ jobs:
     - name: Import GPG key
       uses: crazy-max/ghaction-import-gpg@v6
       with:
-        gpg_private_key: ${{ secrets.SIGNING_PASSWORD }}
-        passphrase: ${{ secrets.GPG_KEY_CONTENTS }}
+        gpg_private_key: ${{ secrets.GPG_KEY_CONTENTS }}
+        passphrase: ${{ secrets.SIGNING_PASSWORD }}
+        # gpg_private_key: ${{ secrets.SIGNING_PASSWORD }}
+        # passphrase: ${{ secrets.GPG_KEY_CONTENTS }}
         
     - name: Deploy to Maven Central
       run: |
         mvn clean deploy -DskipTests \
-        -Dgpg.keyname=${{ secrets.GPG_KEY_CONTENTS }} \
+        -Dgpg.keyname=${{ secrets.SIGNING_PASSWORD }} \
         -Dcentral.username=${{ secrets.USERNAME }} \
         -Dcentral.password=${{ secrets.PACKAGE_TOKEN }}
       env:
-        MAVEN_GPG_PASSPHRASE: ${{ secrets.GPG_KEY_CONTENTS }}
+        MAVEN_GPG_PASSPHRASE: ${{ secrets.SIGNING_PASSWORD }}
