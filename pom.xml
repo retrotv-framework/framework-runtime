@@ -6,7 +6,7 @@
 
     <groupId>dev.retrotv</groupId>
     <artifactId>framework-runtime</artifactId>
-    <version>0.0.23-alpha</version>
+    <version>0.0.24-alpha</version>
     <packaging>pom</packaging>
 
     <!-- 하위 모듈 -->
@@ -26,18 +26,23 @@
 
         <!-- 플러그인 -->
         <sonarqube.version>5.0.0.4389</sonarqube.version>
+        <maven.compiler.version>3.14.0</maven.compiler.version>
+        <maven.source.version>3.3.1</maven.source.version>
+        <maven.javadoc.version>3.11.2</maven.javadoc.version>
+        <maven.surefire.version>3.5.3</maven.surefire.version>
+        <maven.help.version>3.5.1</maven.help.version>
 
         <!-- 라이브러리 -->
-        <lombok.version>1.18.36</lombok.version>
-        <spring-boot.version>3.5.3</spring-boot.version>
-        <mokito.version>5.16.1</mokito.version>
-        <junit.version>5.13.1</junit.version>
-        <assertj.version>3.27.0</assertj.version>
-        <log4j.version>2.24.3</log4j.version>
+        <lombok.version>1.18.38</lombok.version>
+        <spring-boot.version>3.5.4</spring-boot.version>
+        <mokito.version>5.18.0</mokito.version>
+        <junit.version>5.13.4</junit.version>
+        <assertj.version>3.27.4</assertj.version>
+        <log4j.version>2.25.1</log4j.version>
         <slf4j.version>2.0.17</slf4j.version>
 
         <!-- SonarQube -->
-        <jacoco.version>0.8.12</jacoco.version>
+        <jacoco.version>0.8.13</jacoco.version>
         <sonar.language>java</sonar.language>
         <sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin>
         <sonar.dynamicAnalysis>reuseReports</sonar.dynamicAnalysis>
@@ -89,13 +94,13 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.13.0</version>
+                <version>${maven.compiler.version}</version>
             </plugin>
 
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-source-plugin</artifactId>
-                <version>3.3.1</version>
+                <version>${maven.source.version}</version>
                 <executions>
                     <execution>
                         <id>attach-sources</id>
@@ -109,7 +114,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
-                <version>3.11.2</version>
+                <version>${maven.javadoc.version}</version>
                 <executions>
                     <execution>
                         <id>attach-javadocs</id>
@@ -123,7 +128,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>3.5.2</version>
+                <version>${maven.surefire.version}</version>
                 <configuration>
                     <skipTests>false</skipTests>
                     <includes>
@@ -135,7 +140,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-help-plugin</artifactId>
-                <version>3.5.1</version>
+                <version>${maven.help.version}</version>
             </plugin>
 
             <!-- SonarQube 플러그인 -->

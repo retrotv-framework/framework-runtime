@@ -9,7 +9,7 @@
     <parent>
         <groupId>dev.retrotv</groupId>
         <artifactId>framework-runtime</artifactId>
-        <version>0.0.23-alpha</version>
+        <version>0.0.24-alpha</version>
         <relativePath>../../pom.xml</relativePath>
     </parent>
 
@@ -18,9 +18,9 @@
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <fileupload.version>2.0.0-M4</fileupload.version>
-        <common-io.version>2.19.0</common-io.version>
+        <common-io.version>2.20.0</common-io.version>
         <cryptography.version>0.51.0-alpha</cryptography.version>
-        <uuid.version>6.1.0</uuid.version>
+        <uuid.version>6.1.1</uuid.version>
         <extended-file.version>1.4.1</extended-file.version>
     </properties>
 
