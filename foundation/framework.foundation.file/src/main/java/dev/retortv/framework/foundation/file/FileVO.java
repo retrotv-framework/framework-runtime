@@ -17,6 +17,24 @@ import lombok.Getter;
 @AllArgsConstructor
 public class FileVO {
 
+    // 파일 확장자
+    private String fileExt;
+
+    // 파일 타입 (MIME 타입)
+    private String fileType;
+
+    // 원본 파일 이름
+    private String originalFileName;
+
+    // 실제 저장된 파일 이름
+    private String savedFileName;
+
+    // 파일 크기 (바이트 단위)
+    private long fileSize;
+
+    // 파일 경로 (서버 내 저장 경로)
+    private String filePath;
+
     /**
      * FileItem&lt;DiskFileItem&gt;을 이용하여 FileVO 객체를 생성
      *
@@ -30,11 +48,5 @@ public class FileVO {
         this.fileSize = item.getSize();
         this.filePath = subDir;
     }
-
-    private String fileExt;
-    private String fileType;
-    private String originalFileName;
-    private long fileSize;
-    private String filePath;
 }
 
