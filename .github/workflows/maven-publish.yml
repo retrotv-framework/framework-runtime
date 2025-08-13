@@ -31,17 +31,17 @@ jobs:
       run: echo "RELEASE_VERSION=${GITHUB_REF#refs/tags/}" >> $GITHUB_ENV
 
     - name: Build with Maven
-      run: mvn clean verify
+      run: ./mvnm clean verify
       working-directory: location4j
       env:
         MAVEN_GPG_PASSPHRASE: ${{ secrets.SIGNING_PASSWORD }}
 
     - name: Package with Maven
-      run: mvn versions:set -DnewVersion=${{ env.RELEASE_VERSION }} && mvn package -DskipTests
+      run: ./mvnm versions:set -DnewVersion=${{ env.RELEASE_VERSION }} && mvn package -DskipTests
       working-directory: location4j
       
     - name: Deploy Github and Maven Central
-      run: mvn deploy
+      run: ./mvnm deploy
       working-directory: location4j
       env:
         GITHUB_USERNAME: ${{ secrets.GITHUB_ACTOR }}
