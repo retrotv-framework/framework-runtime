@@ -22,17 +22,15 @@ jobs:
     - name: Create Maven settings
       run: |
         mkdir -p ~/.m2
-        cat > ~/.m2/settings.xml << EOF
-        <settings>
+        echo '<settings>
           <servers>
             <server>
               <id>central</id>
-              <username>${{ secrets.MAVEN_CENTRAL_USERNAME }}</username>
-              <password>${{ secrets.MAVEN_CENTRAL_PASSWORD }}</password>
+              <username>${env.MAVEN_USERNAME}</username>
+              <password>${env.MAVEN_PASSWORD}</password>
             </server>
           </servers>
-        </settings>
-        EOF
+        </settings>' > ~/.m2/settings.xml
 
     - name: Import GPG key
       uses: crazy-max/ghaction-import-gpg@v6
