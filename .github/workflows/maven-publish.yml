@@ -27,8 +27,8 @@ jobs:
           <servers>
             <server>
               <id>central</id>
-              <username>${{ secrets.USERNAME }}</username>
-              <password>${{ secrets.PACKAGE_TOKEN }}</password>
+              <username>${{ secrets.MAVEN_CENTRAL_USERNAME }}</username>
+              <password>${{ secrets.MAVEN_CENTRAL_PASSWORD }}</password>
             </server>
           </servers>
         </settings>
@@ -46,7 +46,7 @@ jobs:
       run: |
         mvn clean deploy -DskipTests \
         -Dgpg.keyname=${{ secrets.SIGNING_PASSWORD }} \
-        -Dcentral.username=${{ secrets.USERNAME }} \
-        -Dcentral.password=${{ secrets.PACKAGE_TOKEN }}
+        -Dcentral.username=${{ secrets.MAVEN_CENTRAL_USERNAME }} \
+        -Dcentral.password=${{ secrets.MAVEN_CENTRAL_PASSWORD }}
       env:
         MAVEN_GPG_PASSPHRASE: ${{ secrets.SIGNING_PASSWORD }}
