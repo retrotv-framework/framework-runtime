@@ -4,10 +4,41 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
+    <!-- GAV -->
     <groupId>dev.retrotv</groupId>
     <artifactId>framework-runtime</artifactId>
     <version>0.0.24-alpha</version>
     <packaging>pom</packaging>
+
+    <!-- 프로젝트 정보 -->
+    <name>framework-runtime</name>
+    <description>Runtime framework for spring boot</description>
+    <url>https://github.com/retrotv-framework/framework-runtime</url>
+
+    <!-- 라이선스 정보 -->
+    <licenses>
+        <license>
+            <name>Apache License 2.0</name>
+            <url>https://www.apache.org/licenses/LICENSE-2.0</url>
+        </license>
+    </licenses>
+
+    <!-- 개발자 정보 -->
+    <developers>
+        <developer>
+            <name>JaeJun Yang</name>
+            <email>yjj8353@gmail.com</email>
+            <organization>retrotv-framework</organization>
+            <organizationUrl>https://github.com/retrotv-framework</organizationUrl>
+        </developer>
+    </developers>
+
+    <!-- SCM 정보 -->
+    <scm>
+        <connection>scm:git:github.com/retrotv-framework/framework-runtime</connection>
+        <developerConnection>scm:git:ssh://github.com/retrotv-framework/framework-runtime</developerConnection>
+        <url>https://github.com/retrotv-framework/framework-runtime/tree/main</url>
+    </scm>
 
     <!-- 하위 모듈 -->
     <modules>
@@ -23,6 +54,7 @@
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <gpg.keyname>secret</gpg.keyname>
 
         <!-- 플러그인 -->
         <sonarqube.version>5.0.0.4389</sonarqube.version>
@@ -170,6 +202,38 @@
                         </goals>
                     </execution>
                 </executions>
+            </plugin>
+
+            <!-- Maven GPG 플러그인 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-gpg-plugin</artifactId>
+                <version>3.2.8</version>
+                <executions>
+                    <execution>
+                        <id>sign-artifacts</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>sign</goal>
+                        </goals>
+                        <configuration>
+                            <keyname>${gpg.keyname}</keyname>
+                            <passphrase>${gpg.keyname}</passphrase>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <!-- Maven Central Publishing 플러그인 -->
+            <plugin>
+                <groupId>org.sonatype.central</groupId>
+                <artifactId>central-publishing-maven-plugin</artifactId>
+                <version>0.8.0</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <publishingServerId>central</publishingServerId>
+                    <autoPublish>true</autoPublish>
+                </configuration>
             </plugin>
         </plugins>
     </build>
