@@ -54,8 +54,6 @@
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <gpg.keyname>secret</gpg.keyname>
-        <gpg.passphrase>${env.MAVEN_GPG_PASSPHRASE}</gpg.passphrase>
 
         <!-- 플러그인 -->
         <sonarqube.version>5.0.0.4389</sonarqube.version>
