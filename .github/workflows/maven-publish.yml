@@ -39,7 +39,7 @@ jobs:
         passphrase: ${{ secrets.SIGNING_PASSWORD }}
       
     - name: Deploy to Maven Central
-      run: ./mvnw clean deploy -P release
+      run: ./mvnw clean deploy -P release -X -e
       env:
         MAVEN_USERNAME: ${{ secrets.MAVEN_USERNAME }}
         MAVEN_PASSWORD: ${{ secrets.MAVEN_CENTRAL_TOKEN }}
