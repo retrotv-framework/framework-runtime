@@ -41,12 +41,18 @@ jobs:
         passphrase: ${{ secrets.SIGNING_PASSWORD }}
         # gpg_private_key: ${{ secrets.SIGNING_PASSWORD }}
         # passphrase: ${{ secrets.GPG_KEY_CONTENTS }}
-        
+
     - name: Deploy to Maven Central
-      run: |
-        mvn clean deploy -DskipTests \
-        -Dgpg.keyname=${{ secrets.SIGNING_PASSWORD }} \
-        -Dcentral.username=${{ secrets.MAVEN_CENTRAL_USERNAME }} \
-        -Dcentral.password=${{ secrets.MAVEN_CENTRAL_PASSWORD }}
+      run: ./mvnw clean deploy -P release
       env:
+        MAVEN_CENTRAL_TOKEN: ${{ secrets.MAVEN_CENTRAL_PASSWORD }}
         MAVEN_GPG_PASSPHRASE: ${{ secrets.SIGNING_PASSWORD }}
+        
+    # - name: Deploy to Maven Central
+    #  run: |
+    #    mvn clean deploy -DskipTests \
+    #    -Dgpg.keyname=${{ secrets.SIGNING_PASSWORD }} \
+    #    -Dcentral.username=${{ secrets.MAVEN_CENTRAL_USERNAME }} \
+    #    -Dcentral.password=${{ secrets.MAVEN_CENTRAL_PASSWORD }}
+    #  env:
+    #    MAVEN_GPG_PASSPHRASE: ${{ secrets.SIGNING_PASSWORD }}
