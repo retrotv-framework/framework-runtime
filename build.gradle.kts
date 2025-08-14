@@ -39,6 +39,17 @@ subprojects {
         }
     }
 
+    tasks {
+        compileJava {
+            options.encoding = "UTF-8"
+            options.release.set(17)
+        }
+        compileTestJava {
+            options.encoding = "UTF-8"
+            options.release.set(17)
+        }
+    }
+
     tasks.test {
         useJUnitPlatform()
     }
@@ -64,63 +75,65 @@ subprojects {
         implementation("org.apache.logging.log4j:log4j-slf4j2-impl:$log4j")
     }
 
-    mavenPublishing {
-        publishToMavenCentral(SonatypeHost.CENTRAL_PORTAL)
+    if (project.name.startsWith("framework.")) {
+        mavenPublishing {
+            publishToMavenCentral(SonatypeHost.CENTRAL_PORTAL)
 
-        signAllPublications()
+            signAllPublications()
 
-        coordinates(group.toString(), project.name, version.toString())
+            coordinates(group.toString(), project.name, version.toString())
 
-        pom {
-            name.set("framework-runtime")
-            description.set("Spring boot 기반의 프레임워크 런타임 라이브러리입니다.")
-            inceptionYear.set("2025")
-            url.set("https://github.com/retrotv-framework/framework-runtime")
+            pom {
+                name.set("framework-runtime")
+                description.set("Spring boot 기반의 프레임워크 런타임 라이브러리입니다.")
+                inceptionYear.set("2025")
+                url.set("https://github.com/retrotv-framework/framework-runtime")
 
-            licenses {
-                license {
-                    name.set("The Apache License, Version 2.0")
-                    url.set("https://www.apache.org/licenses/LICENSE-2.0.txt")
+                licenses {
+                    license {
+                        name.set("The Apache License, Version 2.0")
+                        url.set("https://www.apache.org/licenses/LICENSE-2.0.txt")
+                    }
+                }
+
+                developers {
+                    developer {
+                        id.set("yjj8353")
+                        name.set("JaeJun Yang")
+                        email.set("yjj8353@gmail.com")
+                    }
+                }
+
+                scm {
+                    connection.set("scm:git:git://github.com/retrotv-framework/framework-runtime.git")
+                    developerConnection.set("scm:git:ssh://github.com/retrotv-framework/framework-runtime.git")
+                    url.set("https://github.com/retrotv-framework/framework-runtime.git")
                 }
             }
 
-            developers {
-                developer {
-                    id.set("yjj8353")
-                    name.set("JaeJun Yang")
-                    email.set("yjj8353@gmail.com")
-                }
-            }
+            publishing {
+                repositories {
 
-            scm {
-                connection.set("scm:git:git://github.com/retrotv-framework/framework-runtime.git")
-                developerConnection.set("scm:git:ssh://github.com/retrotv-framework/framework-runtime.git")
-                url.set("https://github.com/retrotv-framework/framework-runtime.git")
-            }
-        }
-
-        publishing {
-            repositories {
-
-                // Github Packages에 배포하기 위한 설정
-                maven {
-                    name = "GitHubPackages"
-                    url = URI("https://maven.pkg.github.com/retrotv-framework/framework-runtime")
-                    credentials {
-                        username = System.getenv("USERNAME")
-                        password = System.getenv("PASSWORD")
+                    // Github Packages에 배포하기 위한 설정
+                    maven {
+                        name = "GitHubPackages"
+                        url = URI("https://maven.pkg.github.com/retrotv-framework/framework-runtime")
+                        credentials {
+                            username = System.getenv("USERNAME")
+                            password = System.getenv("PASSWORD")
+                        }
                     }
                 }
             }
         }
-    }
 
-    tasks.withType<Sign>().configureEach {
-        onlyIf {
-            // 로컬 및 깃허브 패키지 배포 시에는 서명하지 않도록 설정
-            val graph = gradle.taskGraph
-            !graph.allTasks.any { task ->
-                task.path.endsWith("PublicationToMavenLocal") || task.path.endsWith("PublicationToGitHubPackagesRepository")
+        tasks.withType<Sign>().configureEach {
+            onlyIf {
+                // 로컬 및 깃허브 패키지 배포 시에는 서명하지 않도록 설정
+                val graph = gradle.taskGraph
+                !graph.allTasks.any { task ->
+                    task.path.endsWith("PublicationToMavenLocal") || task.path.endsWith("PublicationToGitHubPackagesRepository")
+                }
             }
         }
     }
