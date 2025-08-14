@@ -1,0 +1,18 @@
+sonar {
+    properties {
+        property("sonar.projectKey", "retrotv-framework_framework-runtime")
+        property("sonar.organization", "retrotv-framework")
+        property("sonar.host.url", "https://sonarcloud.io")
+        property("sonar.coverage.exclusions",
+                 "**/foundation/common/filter/**" +
+                 ", **/foundation/common/response/**" +
+                 ", **/foundation/common/util/**" +
+                 ", **/foundation/common/wrapper/**" +
+                 ", **/foundation/common/AbstractService.java" +
+                 ", **/jpa/*" +
+                 ", **/Abstract*.java" +
+                 ", FileUtil.java" +
+                 ", FileVO.java" +
+                 ", **/*NamingStrategy.java")
+    }
+}
