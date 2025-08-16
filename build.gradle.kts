@@ -11,7 +11,7 @@ plugins {
 }
 
 group = "dev.retrotv"
-version = "0.0.26-alpha"
+version = "0.0.27-alpha"
 
 // Github Action 버전 출력용
 tasks.register("printVersionName") {
@@ -63,18 +63,18 @@ subprojects {
 
     dependencies {
 
+        // Logging 라이브러리
+        compileOnly("org.slf4j:slf4j-api:${slf4j}")
+        testImplementation("org.apache.logging.log4j:log4j-api:$log4j")
+        testImplementation("org.apache.logging.log4j:log4j-core:$log4j")
+        testImplementation("org.apache.logging.log4j:log4j-slf4j2-impl:$log4j")
+
         // Lombok 라이브러리
         compileOnly("org.projectlombok:lombok:$lombok")
         annotationProcessor("org.projectlombok:lombok:$lombok")
 
         // Spring Boot 라이브러리
         implementation("org.springframework.boot:spring-boot-starter-web:$springBoot")
-
-        // Logging 라이브러리
-        api("org.slf4j:slf4j-api:$slf4j")
-        implementation("org.apache.logging.log4j:log4j-api:$log4j")
-        implementation("org.apache.logging.log4j:log4j-core:$log4j")
-        implementation("org.apache.logging.log4j:log4j-slf4j2-impl:$log4j")
     }
 
     if (project.name.startsWith("framework.")) {
