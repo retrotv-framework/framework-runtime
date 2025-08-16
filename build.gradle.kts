@@ -4,6 +4,7 @@ import java.net.URI
 plugins {
     java
     jacoco
+    `java-library`
     `maven-publish`
     id("com.vanniktech.maven.publish") version "0.32.0"
     id("org.sonarqube") version "4.0.0.2929"
@@ -30,6 +31,7 @@ allprojects {
 
 subprojects {
     apply(plugin = "java")
+    apply(plugin = "java-library")
     apply(plugin = "maven-publish")
     apply(plugin = "com.vanniktech.maven.publish")
 
@@ -69,7 +71,7 @@ subprojects {
         implementation("org.springframework.boot:spring-boot-starter-web:$springBoot")
 
         // Logging 라이브러리
-        implementation("org.slf4j:slf4j-api:$slf4j")
+        api("org.slf4j:slf4j-api:$slf4j")
         implementation("org.apache.logging.log4j:log4j-api:$log4j")
         implementation("org.apache.logging.log4j:log4j-core:$log4j")
         implementation("org.apache.logging.log4j:log4j-slf4j2-impl:$log4j")
