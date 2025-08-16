@@ -44,10 +44,10 @@ jobs:
           ORG_GRADLE_PROJECT_signingInMemoryKeyPassword: ${{ secrets.SIGNING_PASSWORD }}
           ORG_GRADLE_PROJECT_signingInMemoryKey: ${{ secrets.GPG_KEY_CONTENTS }}
 
-      - name: Publish to GitHub Pacakges
+      - name: Publish to GitHub Packages
         run: ./gradlew publishMavenPublicationToGitHubPackagesRepository --no-configuration-cache
         env:
-          USERNAME: ${{ secrets.USERNAME }}
+          USERNAME: ${{ github.actor }}
           PASSWORD: ${{ secrets.PACKAGE_TOKEN }}
 
       - name: Publish to MavenLocal
