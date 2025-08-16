@@ -58,12 +58,16 @@ subprojects {
 
     val springBoot = project.property("spring-boot.version") as String
     val lombok = project.property("lombok.version") as String
+    val log4j = project.property("log4j.version") as String
     val slf4j = project.property("slf4j.version") as String
 
     dependencies {
 
         // Logging 라이브러리
-        api("org.slf4j:slf4j-api:${slf4j}")
+        compileOnly("org.slf4j:slf4j-api:${slf4j}")
+        testImplementation("org.apache.logging.log4j:log4j-api:$log4j")
+        testImplementation("org.apache.logging.log4j:log4j-core:$log4j")
+        testImplementation("org.apache.logging.log4j:log4j-slf4j2-impl:$log4j")
 
         // Lombok 라이브러리
         compileOnly("org.projectlombok:lombok:$lombok")
