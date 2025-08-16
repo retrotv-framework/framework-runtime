@@ -65,8 +65,8 @@ subprojects {
 
         // Logging 라이브러리
         compileOnly("org.slf4j:slf4j-api:${slf4j}")
-        testRuntimeOnly("org.apache.logging.log4j:log4j-core:${log4j}")
-        testRuntimeOnly("org.apache.logging.log4j:log4j-slf4j2-impl:${log4j}")
+        testCompileOnly("org.apache.logging.log4j:log4j-core:${log4j}")
+        testCompileOnly("org.apache.logging.log4j:log4j-slf4j2-impl:${log4j}")
 
         // Lombok 라이브러리
         compileOnly("org.projectlombok:lombok:$lombok")
