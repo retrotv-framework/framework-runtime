@@ -11,7 +11,7 @@ plugins {
 }
 
 group = "dev.retrotv"
-version = "0.0.32-alpha"
+version = "0.0.33-alpha"
 
 // Github Action 버전 출력용
 tasks.register("printVersionName") {
@@ -64,7 +64,7 @@ subprojects {
     dependencies {
 
         // Spring Boot 라이브러리
-        compileOnly("org.springframework.boot:spring-boot-starter-web:${springBoot}")
+        compileOnly("org.springframework.boot:spring-boot-starter-web:$springBoot")
 
         // Logging 라이브러리
         compileOnly("org.slf4j:slf4j-api:$slf4j")
