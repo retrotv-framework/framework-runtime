@@ -11,7 +11,7 @@ plugins {
 }
 
 group = "dev.retrotv"
-version = "0.0.31-alpha"
+version = "0.0.32-alpha"
 
 // Github Action 버전 출력용
 tasks.register("printVersionName") {
@@ -63,6 +63,9 @@ subprojects {
 
     dependencies {
 
+        // Spring Boot 라이브러리
+        compileOnly("org.springframework.boot:spring-boot-starter-web:${springBoot}")
+
         // Logging 라이브러리
         compileOnly("org.slf4j:slf4j-api:$slf4j")
         testImplementation("org.slf4j:slf4j-api:$slf4j")
@@ -72,9 +75,6 @@ subprojects {
         // Lombok 라이브러리
         compileOnly("org.projectlombok:lombok:$lombok")
         annotationProcessor("org.projectlombok:lombok:$lombok")
-
-        // Spring Boot 라이브러리
-        implementation("org.springframework.boot:spring-boot-starter-web:$springBoot")
     }
 
     if (project.name.startsWith("framework.")) {
