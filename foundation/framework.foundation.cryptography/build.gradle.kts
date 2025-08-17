@@ -15,7 +15,7 @@ val assertj = project.property("assertj.version") as String
 dependencies {
     implementation(project(":foundation:framework.foundation.common"))
 
-    implementation("com.fasterxml.jackson.core:jackson-module-kotlin:$jackson")
+    implementation("com.fasterxml.jackson.module:jackson-module-kotlin:$jackson")
     implementation("dev.retrotv:data-utils:$dataUtils")
     implementation("dev.retrotv:cryptography-core:$cryptography")
     implementation("dev.retrotv:cryptography-hash:$cryptography")
