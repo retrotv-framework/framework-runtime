@@ -11,7 +11,7 @@ plugins {
 }
 
 group = "dev.retrotv"
-version = "0.0.29-alpha"
+version = "0.0.30-alpha"
 
 // Github Action 버전 출력용
 tasks.register("printVersionName") {
@@ -64,9 +64,10 @@ subprojects {
     dependencies {
 
         // Logging 라이브러리
-        compileOnly("org.slf4j:slf4j-api:${slf4j}")
-        testCompileOnly("org.apache.logging.log4j:log4j-core:${log4j}")
-        testCompileOnly("org.apache.logging.log4j:log4j-slf4j2-impl:${log4j}")
+        compileOnly("org.slf4j:slf4j-api:$slf4j")
+        testImplementation("org.slf4j:slf4j-api:$slf4j")
+        testImplementation("org.apache.logging.log4j:log4j-core:$log4j")
+        testImplementation("org.apache.logging.log4j:log4j-slf4j2-impl:$log4j")
 
         // Lombok 라이브러리
         compileOnly("org.projectlombok:lombok:$lombok")
