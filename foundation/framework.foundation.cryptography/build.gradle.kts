@@ -6,6 +6,7 @@ val dataUtils = project.property("data-utils.version") as String
 val cryptography = project.property("cryptography.version") as String
 val bouncycastle = project.property("bouncycastle.version") as String
 
+val jackson = project.property("jackson.version") as String
 val mokito = project.property("mockito.version") as String
 val junit = project.property("junit.version") as String
 val junitLauncher = project.property("junit-launcher.version") as String
