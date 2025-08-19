@@ -15,12 +15,11 @@ val assertj = project.property("assertj.version") as String
 dependencies {
     implementation(project(":foundation:framework.foundation.common"))
 
-    implementation("com.fasterxml.jackson.core:jackson-module-kotlin:$jackson")
-    implementation("dev.retrotv:data-utils:$dataUtils")
-    implementation("dev.retrotv:cryptography-core:$cryptography")
-    implementation("dev.retrotv:cryptography-hash:$cryptography")
-    implementation("dev.retrotv:cryptography-cipher:$cryptography")
-    implementation("dev.retrotv:cryptography-password:$cryptography")
+    // implementation("dev.retrotv:data-utils:$dataUtils")
+    // implementation("dev.retrotv:cryptography-core:$cryptography")
+    // implementation("dev.retrotv:cryptography-hash:$cryptography")
+    // implementation("dev.retrotv:cryptography-cipher:$cryptography")
+    // implementation("dev.retrotv:cryptography-password:$cryptography")
     implementation("org.bouncycastle:bcprov-jdk18on:$bouncycastle")
 
     // // 테스트용 라이브러리

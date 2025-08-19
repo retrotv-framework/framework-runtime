@@ -10,10 +10,10 @@ val uuid = project.property("uuid.version") as String
 val extendedFile = project.property("extended-file.version") as String
 
 dependencies {
-    implementation("com.fasterxml.jackson.core:jackson-module-kotlin:$jackson")
+    implementation("com.fasterxml.jackson.module:jackson-module-kotlin:$jackson")
     implementation("org.apache.commons:commons-fileupload2-jakarta-servlet6:$fileupload")
     implementation("commons-io:commons-io:$commonIo")
-    implementation("dev.retrotv:cryptography-hash:$cryptography")
+    // implementation("dev.retrotv:cryptography-hash:$cryptography")
     implementation("com.github.f4b6a3:uuid-creator:$uuid")
-    implementation("dev.retrotv:extended-file:$extendedFile")
+    // implementation("dev.retrotv:extended-file:$extendedFile")
 }
