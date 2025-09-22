@@ -12,10 +12,4 @@ dependencies {
     annotationProcessor("io.github.openfeign.querydsl:querydsl-apt:$querydsl:jakarta")
 }
 
-sourceSets {
-    main {
-        java {
-            srcDir("build/generated/sources/annotationProcessor/java/main")
-        }
-    }
-}
+sourceSets["main"].java.srcDir("build/generated/source/kapt/main")
