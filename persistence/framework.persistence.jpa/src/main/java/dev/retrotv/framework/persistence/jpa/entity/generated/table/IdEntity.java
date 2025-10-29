@@ -1,12 +1,11 @@
-package dev.retrotv.framework.persistence.jpa.entity.sequence;
+package dev.retrotv.framework.persistence.jpa.entity.generated.table;
 
 import jakarta.persistence.*;
-import org.hibernate.annotations.Comment;
-
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
+import org.hibernate.annotations.Comment;
 
 /**
  * 식별자를 가지는 엔티티
@@ -24,6 +23,6 @@ public abstract class IdEntity {
     @Id
     @Comment("식별자")
     @Column(name = "ID")
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.TABLE)
     protected Long id;
 }

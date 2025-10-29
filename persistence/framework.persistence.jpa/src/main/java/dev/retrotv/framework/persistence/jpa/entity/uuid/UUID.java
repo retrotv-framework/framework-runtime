@@ -1,4 +1,4 @@
-package dev.retrotv.framework.persistence.jpa.entity.auto;
+package dev.retrotv.framework.persistence.jpa.entity.uuid;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -8,21 +8,17 @@ import lombok.experimental.SuperBuilder;
 import org.hibernate.annotations.Comment;
 
 /**
- * 식별자를 가지는 엔티티
- *
- * @since 1.0.0
- * @version 1.0.0
+ * UUID 형식의 식별자를 가지는 엔티티
  */
 @Getter
 @SuperBuilder
 @MappedSuperclass
 @NoArgsConstructor
 @AllArgsConstructor
-public abstract class IdEntity {
-    
+public abstract class UUID {
+
     @Id
     @Comment("식별자")
     @Column(name = "ID")
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    protected Long id;
+    protected UUID id;
 }

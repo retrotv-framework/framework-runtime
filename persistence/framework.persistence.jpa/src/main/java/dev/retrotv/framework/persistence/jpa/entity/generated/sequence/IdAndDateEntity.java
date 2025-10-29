@@ -1,12 +1,13 @@
-package dev.retrotv.framework.persistence.jpa.entity.table;
+package dev.retrotv.framework.persistence.jpa.entity.generated.sequence;
 
 import dev.retrotv.framework.persistence.jpa.entity.DateEntity;
 import jakarta.persistence.*;
+import org.hibernate.annotations.Comment;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
-import org.hibernate.annotations.Comment;
 
 /**
  * 식별자와 생성/수정일자 및 사용자 데이터를 가지는 엔티티
@@ -24,6 +25,6 @@ public abstract class IdAndDateEntity extends DateEntity {
     @Id
     @Comment("식별자")
     @Column(name = "ID")
-    @GeneratedValue(strategy = GenerationType.TABLE)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     protected Long id;
 }
