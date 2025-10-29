@@ -25,12 +25,12 @@ import jakarta.persistence.Embeddable;
 public class SoftDeleted {
 
     @Builder.Default
-    @Comment("사용여부")
+    @Comment("삭제여부")
     @Column(name = "DELETED_YN", length = 1)
     @Convert(converter = BooleanYNConverter.class)
     private Boolean yn = false;
 
     @Comment("삭제사유")
-    @Column(name = "DELETED_REASON", length = 200)
+    @Column(name = "DELETED_REASON", length = 2000)
     private String reason;
 }

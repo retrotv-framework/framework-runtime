@@ -22,7 +22,7 @@ public abstract class IdEntity {
     
     @Id
     @Comment("식별자")
-    @Column(name = "ID")
+    @Column(name = "ID", nullable = false)
     @GeneratedValue(strategy = GenerationType.AUTO)
     protected Long id;
 }

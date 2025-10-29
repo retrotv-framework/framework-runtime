@@ -24,7 +24,7 @@ public abstract class IdAndDateEntity extends DateEntity {
 
     @Id
     @Comment("식별자")
-    @Column(name = "ID")
+    @Column(name = "ID", nullable = false)
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     protected Long id;
 }
