@@ -1,4 +1,4 @@
-package dev.retrotv.framework.persistence.jpa.entity.table;
+package dev.retrotv.framework.persistence.jpa.entity.generated.table;
 
 import dev.retrotv.framework.persistence.jpa.entity.DateEntity;
 import jakarta.persistence.*;
@@ -23,7 +23,7 @@ public abstract class IdAndDateEntity extends DateEntity {
 
     @Id
     @Comment("식별자")
-    @Column(name = "ID")
+    @Column(name = "ID", nullable = false)
     @GeneratedValue(strategy = GenerationType.TABLE)
     protected Long id;
 }

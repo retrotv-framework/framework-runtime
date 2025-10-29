@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import java.nio.charset.StandardCharsets;
 
-public class SHA3_512Test {
+class SHA3_512Test {
     
     @Test
     @DisplayName("SHA3-512 해시 알고리즘 테스트")

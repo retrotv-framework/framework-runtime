@@ -1,4 +1,3 @@
-import com.vanniktech.maven.publish.SonatypeHost
 import java.net.URI
 
 plugins {
@@ -6,12 +5,12 @@ plugins {
     jacoco
     `java-library`
     `maven-publish`
-    id("com.vanniktech.maven.publish") version "0.32.0"
+    id("com.vanniktech.maven.publish") version "0.34.0"
     id("org.sonarqube") version "4.0.0.2929"
 }
 
 group = "dev.retrotv"
-version = "0.0.35-alpha"
+version = "0.0.36-alpha"
 
 // Github Action 버전 출력용
 tasks.register("printVersionName") {
@@ -57,6 +56,7 @@ subprojects {
     }
 
     val springBoot = project.property("spring-boot.version") as String
+    val uuid = project.property("uuid.version") as String
     val lombok = project.property("lombok.version") as String
     val log4j = project.property("log4j.version") as String
     val slf4j = project.property("slf4j.version") as String
@@ -65,6 +65,9 @@ subprojects {
 
         // Spring Boot 라이브러리
         compileOnly("org.springframework.boot:spring-boot-starter-web:$springBoot")
+
+        // UUID 생성 라이브러리
+        implementation("com.github.f4b6a3:uuid-creator:$uuid")
 
         // Logging 라이브러리
         compileOnly("org.slf4j:slf4j-api:$slf4j")
@@ -79,10 +82,8 @@ subprojects {
 
     if (project.name.startsWith("framework.")) {
         mavenPublishing {
-            publishToMavenCentral(SonatypeHost.CENTRAL_PORTAL)
-
+            publishToMavenCentral()
             signAllPublications()
-
             coordinates(group.toString(), project.name, version.toString())
 
             pom {
