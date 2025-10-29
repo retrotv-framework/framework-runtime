@@ -1,4 +1,3 @@
-import com.vanniktech.maven.publish.SonatypeHost
 import java.net.URI
 
 plugins {
@@ -6,12 +5,12 @@ plugins {
     jacoco
     `java-library`
     `maven-publish`
-    id("com.vanniktech.maven.publish") version "0.32.0"
+    id("com.vanniktech.maven.publish") version "0.34.0"
     id("org.sonarqube") version "4.0.0.2929"
 }
 
 group = "dev.retrotv"
-version = "0.0.35-alpha"
+version = "0.0.36-alpha"
 
 // Github Action 버전 출력용
 tasks.register("printVersionName") {
@@ -83,10 +82,8 @@ subprojects {
 
     if (project.name.startsWith("framework.")) {
         mavenPublishing {
-            publishToMavenCentral(SonatypeHost.CENTRAL_PORTAL)
-
+            publishToMavenCentral()
             signAllPublications()
-
             coordinates(group.toString(), project.name, version.toString())
 
             pom {
