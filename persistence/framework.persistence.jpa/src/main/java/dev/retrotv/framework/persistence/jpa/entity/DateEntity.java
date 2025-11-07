@@ -1,5 +1,6 @@
 package dev.retrotv.framework.persistence.jpa.entity;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
 import org.hibernate.annotations.Comment;
@@ -29,7 +30,7 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @AllArgsConstructor
 @EntityListeners(AuditingEntityListener.class)
-public abstract class DateEntity {
+public abstract class DateEntity implements Serializable {
 
     @CreatedDate
     @Comment("등록일시")

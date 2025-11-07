@@ -1,5 +1,6 @@
 package dev.retrotv.framework.persistence.jpa.embedded;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
 import dev.retrotv.framework.persistence.jpa.converter.BooleanYNConverter;
@@ -24,8 +25,8 @@ import lombok.NoArgsConstructor;
 @Embeddable
 @NoArgsConstructor
 @AllArgsConstructor
-public class Use {
-    
+public class Use implements Serializable {
+
     @Builder.Default
     @Comment("사용여부")
     @Column(name = "USE_YN", length = 1)

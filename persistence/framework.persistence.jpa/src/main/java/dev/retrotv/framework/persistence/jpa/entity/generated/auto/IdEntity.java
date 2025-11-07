@@ -7,6 +7,8 @@ import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 import org.hibernate.annotations.Comment;
 
+import java.io.Serializable;
+
 /**
  * 식별자를 가지는 엔티티
  *
@@ -18,7 +20,7 @@ import org.hibernate.annotations.Comment;
 @MappedSuperclass
 @NoArgsConstructor
 @AllArgsConstructor
-public abstract class IdEntity {
+public abstract class IdEntity implements Serializable {
     
     @Id
     @Comment("식별자")
