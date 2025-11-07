@@ -8,6 +8,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
+import java.io.Serializable;
+
 /**
  * 식별자를 가지는 엔티티
  *
@@ -19,7 +21,7 @@ import lombok.experimental.SuperBuilder;
 @MappedSuperclass
 @NoArgsConstructor
 @AllArgsConstructor
-public abstract class IdEntity {
+public abstract class IdEntity implements Serializable {
     
     @Id
     @Comment("식별자")

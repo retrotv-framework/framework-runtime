@@ -11,6 +11,8 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Convert;
 import jakarta.persistence.Embeddable;
 
+import java.io.Serializable;
+
 /**
  * 데이터를 소프트하게 삭제하기 위한 임베디드 필드
  *
@@ -22,7 +24,7 @@ import jakarta.persistence.Embeddable;
 @Embeddable
 @NoArgsConstructor
 @AllArgsConstructor
-public class SoftDeleted {
+public class SoftDeleted implements Serializable {
 
     @Builder.Default
     @Comment("삭제여부")
