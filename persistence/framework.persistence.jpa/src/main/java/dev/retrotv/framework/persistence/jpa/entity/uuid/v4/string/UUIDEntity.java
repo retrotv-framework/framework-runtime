@@ -1,6 +1,5 @@
 package dev.retrotv.framework.persistence.jpa.entity.uuid.v4.string;
 
-import dev.retrotv.framework.persistence.jpa.converter.UUIDBytesConverter;
 import dev.retrotv.framework.persistence.jpa.converter.UUIDStringConverter;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

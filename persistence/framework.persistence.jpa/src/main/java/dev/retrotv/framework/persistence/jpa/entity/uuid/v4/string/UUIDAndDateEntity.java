@@ -1,6 +1,5 @@
 package dev.retrotv.framework.persistence.jpa.entity.uuid.v4.string;
 
-import dev.retrotv.framework.persistence.jpa.converter.UUIDBytesConverter;
 import dev.retrotv.framework.persistence.jpa.converter.UUIDStringConverter;
 import dev.retrotv.framework.persistence.jpa.entity.DateEntity;
 import jakarta.persistence.*;
@@ -10,7 +9,6 @@ import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 import org.hibernate.annotations.Comment;
 
-import java.io.Serializable;
 import java.util.UUID;
 
 /**
@@ -21,7 +19,7 @@ import java.util.UUID;
 @MappedSuperclass
 @NoArgsConstructor
 @AllArgsConstructor
-public abstract class UUIDAndDateEntity extends DateEntity implements Serializable {
+public abstract class UUIDAndDateEntity extends DateEntity {
 
     @Id
     @Comment("식별자")

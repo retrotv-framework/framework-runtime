@@ -9,7 +9,6 @@ import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 import org.hibernate.annotations.Comment;
 
-import java.io.Serializable;
 import java.util.UUID;
 
 /**
@@ -20,7 +19,7 @@ import java.util.UUID;
 @MappedSuperclass
 @NoArgsConstructor
 @AllArgsConstructor
-public abstract class UUIDAndDateEntity extends DateEntity implements Serializable {
+public abstract class UUIDAndDateEntity extends DateEntity {
 
     @Id
     @Comment("식별자")
