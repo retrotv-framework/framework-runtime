@@ -9,13 +9,13 @@ import java.nio.charset.StandardCharsets;
 import static org.junit.jupiter.api.Assertions.*;
 
 class SHA256Test {
-    
+
     @Test
     @DisplayName("SHA256 해시 알고리즘 테스트")
     void test_SHA256() {
         String input1 = "The quick brown fox jumps over the lazy dog";
         String input2 = "The quick brown fox jumps over the lazy dog!";
- 
+
         SHA256 sha256 = new SHA256();
         byte[] result1 = sha256.digest(input1);
         byte[] result2 = sha256.digest(input2);
@@ -55,4 +55,4 @@ class SHA256Test {
             assertArrayEquals(result1, result4);
         }
     }
-} 
+}

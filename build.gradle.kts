@@ -6,7 +6,7 @@ plugins {
     `java-library`
     `maven-publish`
     id("com.vanniktech.maven.publish") version "0.34.0"
-    id("org.sonarqube") version "6.2.0.5505"
+    id("org.sonarqube") version "5.1.0.4882"
 }
 
 group = "dev.retrotv"

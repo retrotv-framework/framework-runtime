@@ -1,6 +1,5 @@
 package dev.retrotv.framework.foundation.cryptography.digest.sha;
 
-import dev.retrotv.data.utils.ByteUtils;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -10,14 +9,14 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import java.nio.charset.StandardCharsets;
 
-public class SHA3_224Test {
-    
+class SHA3_224Test {
+
     @Test
     @DisplayName("SHA3-224 해시 알고리즘 테스트")
     void test_SHA3_224() throws Exception {
         String input1 = "The quick brown fox jumps over the lazy dog";
         String input2 = "The quick brown fox jumps over the lazy dog!";
- 
+
         SHA3_224 sha3_224 = new SHA3_224();
         byte[] result1 = sha3_224.digest(input1);
         byte[] result2 = sha3_224.digest(input2);
@@ -36,7 +35,7 @@ public class SHA3_224Test {
 
     @Test
     @DisplayName("SHA3-224 해시 알고리즘 테스트 - 문자열")
-    void test_SHA3_224_String() throws Exception {
+    void test_SHA3_224_String() {
         String input1 = "The quick brown fox jumps over the lazy dog";
         String input2 = "The quick brown fox jumps over the lazy dog!";
 
@@ -57,4 +56,4 @@ public class SHA3_224Test {
             assertArrayEquals(result1, result4);
         }
     }
-} 
+}

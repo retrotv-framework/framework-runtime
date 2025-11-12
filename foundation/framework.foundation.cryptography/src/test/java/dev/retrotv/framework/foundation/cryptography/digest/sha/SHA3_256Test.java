@@ -1,6 +1,5 @@
 package dev.retrotv.framework.foundation.cryptography.digest.sha;
 
-import dev.retrotv.data.utils.ByteUtils;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -11,13 +10,13 @@ import static org.junit.jupiter.api.Assertions.*;
 import java.nio.charset.StandardCharsets;
 
 class SHA3_256Test {
-    
+
     @Test
     @DisplayName("SHA3-256 해시 알고리즘 테스트")
-    void test_SHA3_256() throws Exception {
+    void test_SHA3_256() {
         String input1 = "The quick brown fox jumps over the lazy dog";
         String input2 = "The quick brown fox jumps over the lazy dog!";
- 
+
         SHA3_256 sha3_256 = new SHA3_256();
         byte[] result1 = sha3_256.digest(input1);
         byte[] result2 = sha3_256.digest(input2);
@@ -36,7 +35,7 @@ class SHA3_256Test {
 
     @Test
     @DisplayName("SHA3-256 해시 알고리즘 테스트 - 문자열")
-    void test_SHA3_256_String() throws Exception {
+    void test_SHA3_256_String() {
         String input1 = "The quick brown fox jumps over the lazy dog";
         String input2 = "The quick brown fox jumps over the lazy dog!";
 
@@ -57,4 +56,4 @@ class SHA3_256Test {
             assertArrayEquals(result1, result4);
         }
     }
-} 
+}
