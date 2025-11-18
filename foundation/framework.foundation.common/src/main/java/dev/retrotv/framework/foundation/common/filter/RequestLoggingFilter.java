@@ -53,6 +53,7 @@ public class RequestLoggingFilter extends OncePerRequestFilter {
         }
     }
 
+    // Request(요청)을 로깅함
     private static void logRequest(RequestWrapper request) throws IOException {
         String method = request.getMethod();
         String queryString = request.getQueryString();
@@ -78,11 +79,13 @@ public class RequestLoggingFilter extends OncePerRequestFilter {
         logPayload("Request", contentType, request.getInputStream());
     }
 
+    // Response(응답)을 로깅함
     private static void logResponse(ContentCachingResponseWrapper response) throws IOException {
         String contentType = response.getContentType() == null ? "" : response.getContentType();
         logPayload("Response", contentType, response.getContentInputStream());
     }
 
+    // Request, Response의 Payload(본문 내용)를 로깅함
     private static void logPayload(String prefix, String contentType, InputStream inputStream) throws IOException {
         boolean visible = isVisible(
             MediaType.valueOf(
@@ -124,7 +127,10 @@ public class RequestLoggingFilter extends OncePerRequestFilter {
         }
     }
 
+    // Payload(본문 내용)을 로깅 여부를 판단함
     private static boolean isVisible(MediaType mediaType) {
+
+        // 로깅 가능한 미디어 타입 목록, 이 외에는 로깅하지 않음
         final List<MediaType> visibleTypes = Arrays.asList(
             MediaType.valueOf("text/*"),
             MediaType.APPLICATION_FORM_URLENCODED,

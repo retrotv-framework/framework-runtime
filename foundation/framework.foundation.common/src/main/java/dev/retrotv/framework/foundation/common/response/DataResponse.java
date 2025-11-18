@@ -3,6 +3,14 @@ package dev.retrotv.framework.foundation.common.response;
 import lombok.Getter;
 import org.springframework.http.HttpStatus;
 
+/**
+ * 데이터를 반환할 때 사용하는 응답 추상 클래스
+ * 데이터를 반환하는 응답 클래스를 생성할 때, 이 클래스를 상속받아 구현해야 함
+ *
+ * @since 1.0.0
+ * @version 1.0.0
+ * @param <T> 데이터 타입
+ */
 @Getter
 public abstract class DataResponse<T> extends Response {
     protected final T data;
