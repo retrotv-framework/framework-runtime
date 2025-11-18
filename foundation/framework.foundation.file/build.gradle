@@ -1,0 +1,17 @@
+plugins {
+    id 'java'
+}
+
+def jackson = project.property('jackson.version').toString()
+def fileupload = project.property('fileupload.version').toString()
+def commonIo = project.property('commonIo.version').toString()
+def cryptography = project.property('cryptography.version').toString()
+def extendedFile = project.property('extended-file.version').toString()
+
+dependencies {
+    implementation "com.fasterxml.jackson.module:jackson-module-kotlin:${jackson}"
+    implementation "org.apache.commons:commons-fileupload2-jakarta-servlet6:${fileupload}"
+    implementation "commons-io:commons-io:${commonIo}"
+    implementation "dev.retrotv:cryptography-hash:${cryptography}"
+    implementation "dev.retrotv:extended-file:${extendedFile}"
+}

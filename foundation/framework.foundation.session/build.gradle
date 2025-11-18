@@ -1,0 +1,11 @@
+plugins {
+    id 'java'
+}
+
+def springBoot = project.property('spring-boot.version').toString()
+def springBootSession = project.property('spring-boot-session.version').toString()
+
+dependencies {
+    compileOnly "org.springframework.boot:spring-boot-starter-data-redis:${springBoot}"
+    compileOnly "org.springframework.session:spring-session-data-redis:${springBootSession}"
+}
