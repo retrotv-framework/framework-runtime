@@ -22,8 +22,7 @@ import org.hibernate.annotations.Comment;
 public abstract class IdAndDateEntity extends DateEntity {
 
     @Id
-    @Comment("식별자")
-    @Column(name = "ID", nullable = false)
+    @Column(name = "ID", comment = "식별자")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     protected Long id;
 }

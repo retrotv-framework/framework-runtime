@@ -3,13 +3,11 @@ plugins {
 }
 
 def springBoot = project.property('spring-boot.version').toString()
-def jackson = project.property('jackson.version').toString()
 def dataUtils = project.property('data-utils.version').toString()
 def randomValue = project.property('random-value.version').toString()
 
 dependencies {
     compileOnly "org.springframework.boot:spring-boot-starter-logging:${springBoot}"
-    implementation "com.fasterxml.jackson.core:jackson-databind:${jackson}"
     implementation "dev.retrotv:data-utils:${dataUtils}"
     implementation "dev.retrotv:random-value:${randomValue}"
 }

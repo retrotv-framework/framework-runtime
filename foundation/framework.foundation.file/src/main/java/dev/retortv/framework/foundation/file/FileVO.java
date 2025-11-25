@@ -1,11 +1,10 @@
 package dev.retortv.framework.foundation.file;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
 import org.apache.commons.fileupload2.core.DiskFileItem;
 import org.apache.commons.fileupload2.core.FileItem;
 import org.apache.commons.io.FilenameUtils;
-
-import lombok.AllArgsConstructor;
-import lombok.Getter;
 
 /**
  * 파일 정보를 담는 VO 클래스

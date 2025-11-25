@@ -22,8 +22,7 @@ import java.util.UUID;
 public abstract class UUIDAndDateEntity extends DateEntity {
 
     @Id
-    @Comment("식별자")
-    @Column(name = "ID", nullable = false)
+    @Column(name = "ID", comment = "식별자")
     @Convert(converter = UUIDStringConverter.class)
     protected UUID id;
 

@@ -6,7 +6,6 @@ def dataUtils = project.property('data-utils.version').toString()
 def cryptography = project.property('cryptography.version').toString()
 def bouncycastle = project.property('bouncycastle.version').toString()
 
-def jackson = project.property('jackson.version').toString()
 def mokito = project.property('mockito.version').toString()
 def junit = project.property('junit.version').toString()
 def junitLauncher = project.property('junit-launcher.version').toString()

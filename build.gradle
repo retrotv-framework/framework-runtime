@@ -59,6 +59,7 @@ subprojects {
     dependencies {
         // Spring Boot 라이브러리
         compileOnly "org.springframework.boot:spring-boot-starter-web:${springBoot}"
+        implementation "org.springframework.boot:spring-boot-starter-jackson:${springBoot}"
 
         // UUID 생성 라이브러리
         implementation "com.github.f4b6a3:uuid-creator:${uuid}"

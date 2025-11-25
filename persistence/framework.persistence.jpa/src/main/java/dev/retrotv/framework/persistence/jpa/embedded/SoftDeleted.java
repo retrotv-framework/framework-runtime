@@ -1,15 +1,14 @@
 package dev.retrotv.framework.persistence.jpa.embedded;
 
 import dev.retrotv.framework.persistence.jpa.converter.BooleanYNConverter;
+import jakarta.persistence.Column;
+import jakarta.persistence.Convert;
+import jakarta.persistence.Embeddable;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.Comment;
-
-import jakarta.persistence.Column;
-import jakarta.persistence.Convert;
-import jakarta.persistence.Embeddable;
 
 import java.io.Serializable;
 
