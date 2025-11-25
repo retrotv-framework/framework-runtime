@@ -1,16 +1,17 @@
 package dev.retrotv.framework.foundation.common.filter;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import dev.retrotv.framework.foundation.common.util.IPUtils;
 import dev.retrotv.framework.foundation.common.wrapper.RequestWrapper;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import tools.jackson.databind.ObjectMapper;
+
+import org.jspecify.annotations.NonNull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.MediaType;
-import org.springframework.lang.NonNull;
 import org.springframework.util.StreamUtils;
 import org.springframework.web.filter.OncePerRequestFilter;
 import org.springframework.web.util.ContentCachingResponseWrapper;
@@ -143,6 +144,6 @@ public class RequestLoggingFilter extends OncePerRequestFilter {
         );
 
         return visibleTypes.stream()
-                           .anyMatch(visibleType -> visibleType.includes(mediaType));
+            .anyMatch(visibleType -> visibleType.includes(mediaType));
     }
 }
