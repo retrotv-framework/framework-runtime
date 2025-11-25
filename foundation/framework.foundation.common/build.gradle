@@ -1,0 +1,13 @@
+plugins {
+    id 'java'
+}
+
+def springBoot = project.property('spring-boot.version').toString()
+def dataUtils = project.property('data-utils.version').toString()
+def randomValue = project.property('random-value.version').toString()
+
+dependencies {
+    compileOnly "org.springframework.boot:spring-boot-starter-logging:${springBoot}"
+    implementation "dev.retrotv:data-utils:${dataUtils}"
+    implementation "dev.retrotv:random-value:${randomValue}"
+}

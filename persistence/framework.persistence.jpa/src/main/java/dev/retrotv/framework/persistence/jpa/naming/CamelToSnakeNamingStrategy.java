@@ -1,19 +1,44 @@
 package dev.retrotv.framework.persistence.jpa.naming;
 
-import org.hibernate.boot.model.naming.CamelCaseToUnderscoresNamingStrategy;
 import org.hibernate.boot.model.naming.Identifier;
+import org.hibernate.boot.model.naming.PhysicalNamingStrategySnakeCaseImpl;
 import org.hibernate.engine.jdbc.env.spi.JdbcEnvironment;
 
 import java.util.Locale;
 
-public class CamelToSnakeNamingStrategy extends CamelCaseToUnderscoresNamingStrategy {
+public class CamelToSnakeNamingStrategy extends PhysicalNamingStrategySnakeCaseImpl {
 
     @Override
-    protected Identifier getIdentifier(String name, final boolean quoted, final JdbcEnvironment jdbcEnvironment) {
-        if (isCaseInsensitive(jdbcEnvironment)) {
-            name = name.toLowerCase(Locale.ROOT);
+    public Identifier toPhysicalCatalogName(Identifier logicalName, JdbcEnvironment jdbcEnvironment) {
+        return toLowerCase(super.toPhysicalCatalogName(logicalName, jdbcEnvironment));
+    }
+
+    @Override
+    public Identifier toPhysicalSchemaName(Identifier logicalName, JdbcEnvironment jdbcEnvironment) {
+        return toLowerCase(super.toPhysicalSchemaName(logicalName, jdbcEnvironment));
+    }
+
+    @Override
+    public Identifier toPhysicalTableName(Identifier logicalName, JdbcEnvironment jdbcEnvironment) {
+        return toLowerCase(super.toPhysicalTableName(logicalName, jdbcEnvironment));
+    }
+
+    @Override
+    public Identifier toPhysicalSequenceName(Identifier logicalName, JdbcEnvironment jdbcEnvironment) {
+        return toLowerCase(super.toPhysicalSequenceName(logicalName, jdbcEnvironment));
+    }
+
+    @Override
+    public Identifier toPhysicalColumnName(Identifier logicalName, JdbcEnvironment jdbcEnvironment) {
+        return toLowerCase(super.toPhysicalColumnName(logicalName, jdbcEnvironment));
+    }
+
+    private Identifier toLowerCase(Identifier identifier) {
+        if (identifier == null) {
+            return null;
         }
 
-        return new Identifier(name, quoted);
+        String name = identifier.getText().toLowerCase(Locale.ROOT);
+        return Identifier.toIdentifier(name, identifier.isQuoted());
     }
 }

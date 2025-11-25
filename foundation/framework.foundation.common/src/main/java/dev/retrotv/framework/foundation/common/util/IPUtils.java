@@ -2,9 +2,15 @@ package dev.retrotv.framework.foundation.common.util;
 
 import jakarta.servlet.http.HttpServletRequest;
 
+/**
+ * IP 관련 유틸리티 클래스
+ *
+ * @since 1.0.0
+ * @version 1.0.0
+ */
 public class IPUtils {
     private IPUtils() {
-        throw new UnsupportedOperationException("Utility class");
+        throw new UnsupportedOperationException("유틸리티 클래스는 인스턴스화할 수 없습니다.");
     }
 
     /**

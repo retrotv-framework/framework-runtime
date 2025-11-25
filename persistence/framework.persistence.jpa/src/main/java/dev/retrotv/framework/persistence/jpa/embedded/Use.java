@@ -1,11 +1,6 @@
 package dev.retrotv.framework.persistence.jpa.embedded;
 
-import java.io.Serializable;
-import java.time.LocalDate;
-
 import dev.retrotv.framework.persistence.jpa.converter.BooleanYNConverter;
-import org.hibernate.annotations.Comment;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Convert;
 import jakarta.persistence.Embeddable;
@@ -13,6 +8,9 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+
+import java.io.Serializable;
+import java.time.LocalDate;
 
 /**
  * 데이터 사용여부 및 사용가능 기간을 지정하기 위한 임베디드 필드
@@ -28,16 +26,13 @@ import lombok.NoArgsConstructor;
 public class Use implements Serializable {
 
     @Builder.Default
-    @Comment("사용여부")
-    @Column(name = "USE_YN", length = 1)
+    @Column(name = "USE_YN", comment = "사용여부", length = 1)
     @Convert(converter = BooleanYNConverter.class)
     private Boolean yn = true;
 
-    @Comment("사용시작일")
-    @Column(name = "USE_START_DATE")
+    @Column(name = "USE_START_DATE", comment = "사용시작일")
     private LocalDate startDate;
 
-    @Comment("사용종료일")
-    @Column(name = "USE_END_DATE")
+    @Column(name = "USE_END_DATE", comment = "사용종료일")
     private LocalDate endDate;
 }

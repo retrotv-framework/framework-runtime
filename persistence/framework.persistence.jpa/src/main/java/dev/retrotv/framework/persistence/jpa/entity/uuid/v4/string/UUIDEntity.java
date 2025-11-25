@@ -1,13 +1,11 @@
 package dev.retrotv.framework.persistence.jpa.entity.uuid.v4.string;
 
-import dev.retrotv.framework.persistence.jpa.converter.UUIDBytesConverter;
 import dev.retrotv.framework.persistence.jpa.converter.UUIDStringConverter;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
-import org.hibernate.annotations.Comment;
 
 import java.io.Serializable;
 import java.util.UUID;
@@ -23,8 +21,7 @@ import java.util.UUID;
 public abstract class UUIDEntity implements Serializable {
 
     @Id
-    @Comment("식별자")
-    @Column(name = "ID", nullable = false)
+    @Column(name = "ID", comment = "식별자")
     @Convert(converter = UUIDStringConverter.class)
     protected UUID id;
 

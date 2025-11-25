@@ -1,9 +1,9 @@
 package dev.retrotv.framework.foundation.cryptography.digest.crc;
 
-import java.nio.ByteBuffer;
-
 import dev.retrotv.framework.foundation.cryptography.digest.GeneralDigest;
 import dev.retrotv.framework.foundation.cryptography.digest.enums.DigestAlgorithm;
+
+import java.nio.ByteBuffer;
 
 public class CRC32C extends GeneralDigest {
     public CRC32C() {

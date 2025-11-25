@@ -5,7 +5,6 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
-import org.hibernate.annotations.Comment;
 
 import java.io.Serializable;
 
@@ -21,10 +20,9 @@ import java.io.Serializable;
 @NoArgsConstructor
 @AllArgsConstructor
 public abstract class IdEntity implements Serializable {
-    
+
     @Id
-    @Comment("식별자")
-    @Column(name = "ID", nullable = false)
+    @Column(name = "ID", comment = "식별자")
     @GeneratedValue(strategy = GenerationType.AUTO)
     protected Long id;
 }

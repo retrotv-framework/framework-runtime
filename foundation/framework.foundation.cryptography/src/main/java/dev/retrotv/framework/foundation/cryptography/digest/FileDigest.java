@@ -1,11 +1,11 @@
 package dev.retrotv.framework.foundation.cryptography.digest;
 
+import dev.retrotv.framework.foundation.common.exception.BaseRuntimeException;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-
-import dev.retrotv.framework.foundation.common.exception.BaseRuntimeException;
 
 public interface FileDigest extends BinaryDigest {
     default byte[] digest(File file) {

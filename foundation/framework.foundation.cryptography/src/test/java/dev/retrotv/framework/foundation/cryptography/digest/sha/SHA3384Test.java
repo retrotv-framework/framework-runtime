@@ -9,13 +9,13 @@ import java.nio.charset.StandardCharsets;
 import static org.junit.jupiter.api.Assertions.*;
 
 class SHA3384Test {
-    
+
     @Test
     @DisplayName("SHA3-384 해시 알고리즘 테스트")
     void test_SHA3_384() {
         String input1 = "The quick brown fox jumps over the lazy dog";
         String input2 = "The quick brown fox jumps over the lazy dog!";
- 
+
         SHA3384 sha3384 = new SHA3384();
         byte[] result1 = sha3384.digest(input1);
         byte[] result2 = sha3384.digest(input2);
@@ -55,4 +55,4 @@ class SHA3384Test {
             assertArrayEquals(result1, result4);
         }
     }
-} 
+}
