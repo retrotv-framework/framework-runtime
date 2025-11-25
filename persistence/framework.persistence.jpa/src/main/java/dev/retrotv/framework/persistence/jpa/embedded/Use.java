@@ -8,7 +8,6 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.Comment;
 
 import java.io.Serializable;
 import java.time.LocalDate;
@@ -27,16 +26,13 @@ import java.time.LocalDate;
 public class Use implements Serializable {
 
     @Builder.Default
-    @Comment("사용여부")
-    @Column(name = "USE_YN", length = 1)
+    @Column(name = "USE_YN", comment = "사용여부", length = 1)
     @Convert(converter = BooleanYNConverter.class)
     private Boolean yn = true;
 
-    @Comment("사용시작일")
-    @Column(name = "USE_START_DATE")
+    @Column(name = "USE_START_DATE", comment = "사용시작일")
     private LocalDate startDate;
 
-    @Comment("사용종료일")
-    @Column(name = "USE_END_DATE")
+    @Column(name = "USE_END_DATE", comment = "사용종료일")
     private LocalDate endDate;
 }

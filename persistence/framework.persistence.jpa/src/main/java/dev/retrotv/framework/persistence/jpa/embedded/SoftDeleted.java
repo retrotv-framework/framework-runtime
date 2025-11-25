@@ -8,7 +8,6 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.Comment;
 
 import java.io.Serializable;
 
@@ -26,12 +25,10 @@ import java.io.Serializable;
 public class SoftDeleted implements Serializable {
 
     @Builder.Default
-    @Comment("삭제여부")
-    @Column(name = "DELETED_YN", length = 1)
+    @Column(name = "DELETED_YN", comment = "삭제여부", length = 1)
     @Convert(converter = BooleanYNConverter.class)
     private Boolean yn = false;
 
-    @Comment("삭제사유")
-    @Column(name = "DELETED_REASON", length = 2000)
+    @Column(name = "DELETED_REASON", comment = "삭제사유")
     private String reason;
 }
