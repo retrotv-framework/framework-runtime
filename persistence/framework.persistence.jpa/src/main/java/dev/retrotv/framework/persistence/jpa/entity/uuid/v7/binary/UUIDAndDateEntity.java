@@ -1,7 +1,6 @@
 package dev.retrotv.framework.persistence.jpa.entity.uuid.v7.binary;
 
 import com.github.f4b6a3.uuid.UuidCreator;
-import dev.retrotv.framework.persistence.jpa.converter.UUIDBytesConverter;
 import dev.retrotv.framework.persistence.jpa.entity.DateEntity;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -10,6 +9,9 @@ import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
 import java.util.UUID;
+
+import org.hibernate.annotations.JdbcType;
+import org.hibernate.type.descriptor.jdbc.BinaryJdbcType;
 
 /**
  * UUID 형식의 식별자와 생성/수정일자 및 사용자 데이터를 가지는 엔티티
@@ -23,7 +25,7 @@ public abstract class UUIDAndDateEntity extends DateEntity {
 
     @Id
     @Column(name = "ID", comment = "식별자")
-    @Convert(converter = UUIDBytesConverter.class)
+    @JdbcType(BinaryJdbcType.class)
     protected UUID id;
 
     @PrePersist

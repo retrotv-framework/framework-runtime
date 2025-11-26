@@ -1,7 +1,6 @@
 package dev.retrotv.framework.persistence.jpa.entity.uuid.v7.binary;
 
 import com.github.f4b6a3.uuid.UuidCreator;
-import dev.retrotv.framework.persistence.jpa.converter.UUIDBytesConverter;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -10,6 +9,9 @@ import lombok.experimental.SuperBuilder;
 
 import java.io.Serializable;
 import java.util.UUID;
+
+import org.hibernate.annotations.JdbcType;
+import org.hibernate.type.descriptor.jdbc.BinaryJdbcType;
 
 /**
  * UUID 형식의 식별자를 가지는 엔티티
@@ -23,7 +25,7 @@ public abstract class UUIDEntity implements Serializable {
 
     @Id
     @Column(name = "ID", comment = "식별자")
-    @Convert(converter = UUIDBytesConverter.class)
+    @JdbcType(BinaryJdbcType.class)
     protected UUID id;
 
     @PrePersist

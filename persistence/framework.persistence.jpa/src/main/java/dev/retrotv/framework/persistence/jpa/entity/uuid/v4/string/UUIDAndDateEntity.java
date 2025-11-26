@@ -1,6 +1,5 @@
 package dev.retrotv.framework.persistence.jpa.entity.uuid.v4.string;
 
-import dev.retrotv.framework.persistence.jpa.converter.UUIDStringConverter;
 import dev.retrotv.framework.persistence.jpa.entity.DateEntity;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -9,6 +8,9 @@ import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
 import java.util.UUID;
+
+import org.hibernate.annotations.JdbcTypeCode;
+import org.hibernate.type.SqlTypes;
 
 /**
  * UUID 형식의 식별자와 생성/수정일자 및 사용자 데이터를 가지는 엔티티
@@ -21,8 +23,8 @@ import java.util.UUID;
 public abstract class UUIDAndDateEntity extends DateEntity {
 
     @Id
-    @Column(name = "ID", comment = "식별자")
-    @Convert(converter = UUIDStringConverter.class)
+    @Column(name = "ID", comment = "식별자", length = 36)
+    @JdbcTypeCode(SqlTypes.CHAR)
     protected UUID id;
 
     @PrePersist
