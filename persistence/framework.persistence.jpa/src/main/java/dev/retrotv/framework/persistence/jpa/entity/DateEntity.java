@@ -31,18 +31,18 @@ import java.time.LocalDateTime;
 public abstract class DateEntity implements Serializable {
 
     @CreatedDate
-    @Column(name = "CREATED_DATE", comment = "등록일시", nullable = false, updatable = false)
-    protected LocalDateTime createdDate;
+    @Column(name = "CREATED_AT", comment = "등록일시", nullable = false, updatable = false)
+    protected LocalDateTime createdAt;
 
     @CreatedBy
-    @Column(name = "CREATED_ID", comment = "등록한 유저", nullable = false, updatable = false)
+    @Column(name = "CREATED_ID", comment = "등록자", nullable = false, updatable = false)
     protected String createdId;
 
     @LastModifiedDate
-    @Column(name = "MODIFIED_DATE", comment = "수정일시", nullable = false)
-    protected LocalDateTime modifiedDate;
+    @Column(name = "MODIFIED_AT", comment = "수정일시", nullable = false)
+    protected LocalDateTime modifiedAt;
 
     @LastModifiedBy
-    @Column(name = "MODIFIED_ID", comment = "수정한 유저", nullable = false)
+    @Column(name = "MODIFIED_ID", comment = "수정자", nullable = false)
     protected String modifiedId;
 }
