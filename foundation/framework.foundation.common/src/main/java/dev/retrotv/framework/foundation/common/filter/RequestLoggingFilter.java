@@ -1,11 +1,11 @@
 package dev.retrotv.framework.foundation.common.filter;
 
 import dev.retrotv.framework.foundation.common.util.IPUtils;
-import dev.retrotv.framework.foundation.common.wrapper.RequestWrapper;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import org.springframework.web.util.ContentCachingRequestWrapper;
 import tools.jackson.databind.ObjectMapper;
 
 import org.jspecify.annotations.NonNull;
@@ -37,12 +37,20 @@ public class RequestLoggingFilter extends OncePerRequestFilter {
         if (isAsyncDispatch(request)) {
             filterChain.doFilter(request, response);
         } else {
-            doFilterWrapped(new RequestWrapper(request), new ContentCachingResponseWrapper(response), filterChain);
+
+            // request와 response가 Wrapper로 감싸져 있는지 확인하고, 그렇지 않으면 스프링에서 제공하는 Wapper로 감싼다
+            ContentCachingRequestWrapper requestWrapper = request instanceof ContentCachingRequestWrapper ?
+                (ContentCachingRequestWrapper) request : new ContentCachingRequestWrapper(request, 1024);
+
+            ContentCachingResponseWrapper responseWrapper = response instanceof ContentCachingResponseWrapper ?
+                (ContentCachingResponseWrapper) response : new ContentCachingResponseWrapper(response);
+
+            doFilterWrapped(requestWrapper, responseWrapper, filterChain);
         }
     }
 
     protected void doFilterWrapped(
-        RequestWrapper request,
+        ContentCachingRequestWrapper request,
         ContentCachingResponseWrapper response,
         FilterChain filterChain
     ) throws IOException, ServletException {
@@ -56,7 +64,7 @@ public class RequestLoggingFilter extends OncePerRequestFilter {
     }
 
     // Request(요청)을 로깅함
-    private static void logRequest(RequestWrapper request) throws IOException {
+    private static void logRequest(ContentCachingRequestWrapper request) throws IOException {
         String method = request.getMethod();
         String queryString = request.getQueryString();
                queryString = queryString == null ? request.getRequestURI() : request.getRequestURI() + queryString;
