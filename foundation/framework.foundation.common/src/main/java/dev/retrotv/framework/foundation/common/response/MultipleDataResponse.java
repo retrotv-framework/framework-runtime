@@ -1,6 +1,5 @@
 package dev.retrotv.framework.foundation.common.response;
 
-import lombok.Getter;
 import org.springframework.http.HttpStatus;
 
 import java.util.Collection;
@@ -12,7 +11,6 @@ import java.util.Collection;
  * @version 1.0.0
  * @param <T> 데이터 타입
  */
-@Getter
 public class MultipleDataResponse<C extends Collection<T>, T> extends DataResponse<C> {
 
     /**
