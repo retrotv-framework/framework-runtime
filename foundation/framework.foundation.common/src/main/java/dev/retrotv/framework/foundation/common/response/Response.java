@@ -3,7 +3,6 @@ package dev.retrotv.framework.foundation.common.response;
 import lombok.Getter;
 import org.springframework.http.HttpStatus;
 
-@Getter
 public abstract class Response {
     protected Response(boolean success, String message, HttpStatus httpStatus) {
         this.success = success;
@@ -14,11 +13,13 @@ public abstract class Response {
     /**
      * 응답 성공 여부
      */
+    @Getter
     protected boolean success;
 
     /**
      * 응답 메시지
      */
+    @Getter
     protected String message;
 
     /**
@@ -31,7 +32,7 @@ public abstract class Response {
      *
      * @return int형 HTTP 상태 코드
      */
-    public int getHttpStatusCode() {
-        return httpStatus.value();
+    public String getReasonPhrase() {
+        return httpStatus.getReasonPhrase();
     }
 }

@@ -39,11 +39,11 @@ public class RequestLoggingFilter extends OncePerRequestFilter {
         } else {
 
             // request와 response가 Wrapper로 감싸져 있는지 확인하고, 그렇지 않으면 스프링에서 제공하는 Wapper로 감싼다
-            ContentCachingRequestWrapper requestWrapper = request instanceof ContentCachingRequestWrapper ?
-                (ContentCachingRequestWrapper) request : new ContentCachingRequestWrapper(request, 1024);
+            ContentCachingRequestWrapper requestWrapper = request instanceof ContentCachingRequestWrapper contentCachingRequestWrapper ?
+                contentCachingRequestWrapper : new ContentCachingRequestWrapper(request, 1024);
 
-            ContentCachingResponseWrapper responseWrapper = response instanceof ContentCachingResponseWrapper ?
-                (ContentCachingResponseWrapper) response : new ContentCachingResponseWrapper(response);
+            ContentCachingResponseWrapper responseWrapper = response instanceof ContentCachingResponseWrapper contentCachingResponseWrapper ?
+                contentCachingResponseWrapper : new ContentCachingResponseWrapper(response);
 
             doFilterWrapped(requestWrapper, responseWrapper, filterChain);
         }

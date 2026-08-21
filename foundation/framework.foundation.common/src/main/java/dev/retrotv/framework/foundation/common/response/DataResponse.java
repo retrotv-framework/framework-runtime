@@ -11,8 +11,9 @@ import org.springframework.http.HttpStatus;
  * @version 1.0.0
  * @param <T> 데이터 타입
  */
-@Getter
 public abstract class DataResponse<T> extends Response {
+
+    @Getter
     protected final T data;
 
     /**
