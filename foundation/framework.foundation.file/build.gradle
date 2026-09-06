@@ -6,10 +6,24 @@ def fileupload = project.property('fileupload.version').toString()
 def commonsIo = project.property('commonsIo.version').toString()
 def cryptography = project.property('cryptography.version').toString()
 def extendedFile = project.property('extended-file.version').toString()
+def springBoot = project.property('spring-boot.version').toString()
+
+def mockito = project.property('mockito.version').toString()
+def junit = project.property('junit.version').toString()
+def junitLauncher = project.property('junit-launcher.version').toString()
+def assertj = project.property('assertj.version').toString()
 
 dependencies {
     implementation "org.apache.commons:commons-fileupload2-jakarta-servlet6:${fileupload}"
     implementation "commons-io:commons-io:${commonsIo}"
     implementation "dev.retrotv:cryptography-hash:${cryptography}"
     implementation "dev.retrotv:extended-file:${extendedFile}"
+
+    // 테스트용 라이브러리
+    testImplementation "org.springframework.boot:spring-boot-starter-web:${springBoot}"
+    testImplementation "org.springframework.boot:spring-boot-starter-test:${springBoot}"
+    testImplementation "org.mockito:mockito-core:${mockito}"
+    testImplementation "org.junit.jupiter:junit-jupiter:${junit}"
+    testImplementation "org.junit.platform:junit-platform-launcher:${junitLauncher}"
+    testImplementation "org.assertj:assertj-core:${assertj}"
 }
